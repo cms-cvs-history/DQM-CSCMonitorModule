@@ -1,90 +1,110 @@
-/** \file
- * 
- *  implementation of CSCMonitor class
- *
- *  $Date: 2006/08/30 13:11:09 $
- *  $Revision: 1.15 $
- *
- * \author Ilaria Segoni
- */
-
-#include <memory>
-#include <iostream>
-
-
 #include "DQM/CSCMonitorModule/interface/CSCMonitor.h"
-#include "EventFilter/CSCRawToDigi/interface/CSCMonitorInterface.h"
-
 
 #include "DQMServices/Daemon/interface/MonitorDaemon.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 
-#include "FWCore/MessageLogger/interface/MessageLogger.h"
+CSCMonitor::CSCMonitor(const edm::ParameterSet& iConfig )
+{
 
-CSCMonitor::CSCMonitor(const edm::ParameterSet& iConfig ){
- 
- 
- printout = iConfig.getUntrackedParameter<bool>("monitorVerbosity", false);
- saveRootFile  = iConfig.getUntrackedParameter<bool>("CSCDQMSaveRootFile", false); 
- saveRootFileEventsInterval  = iConfig.getUntrackedParameter<int>("EventsInterval", 10000); 
- RootFileName  = iConfig.getUntrackedParameter<std::string>("RootFileName", "CSCMonitor.root"); 
+  setParameters();
 
- for(int ddu=0; ddu<maxDDU; ddu++) {
-   dduBooked[ddu]=false;
-   dduBX[ddu]=0;
-   L1ANumber[ddu]=0;
- }
- for(int cmb=0; cmb<maxCMBID; cmb++) cmbBooked[cmb]=false;
+  printout = iConfig.getUntrackedParameter<bool>("monitorVerbosity", false);
+  xmlHistosBookingCfgFile = iConfig.getUntrackedParameter<std::string>("BookingFile", "emuDQMBooking_new.xml"); 
+  fSaveHistos  = iConfig.getUntrackedParameter<bool>("CSCDQMSaveRootFile", false);
+  saveRootFileEventsInterval  = iConfig.getUntrackedParameter<int>("EventsInterval", 20000);
+  RootHistoFile  = iConfig.getUntrackedParameter<std::string>("RootFileName", "CSCMonitor.root");
+      
+  this->loadBooking();
 
- nEvents=0;
- FEBUnpacked =0;
- 
- dbe = edm::Service<DaqMonitorBEInterface>().operator->();
-  
+  dbe = edm::Service<DaqMonitorBEInterface>().operator->();
+
   edm::Service<MonitorDaemon> daemon;
   daemon.operator->();
 
   dbe->showDirStructure();
+  gStyle->SetPalette(1,0);
 }
 
 
-
-CSCMonitor::~CSCMonitor()
+void CSCMonitor::setParameters() 
 {
-   
-  
+  nEvents = 0;
+  L1ANumber = 0;
+  BXN = 0;
+  unpackMask = UNPACK_ALL;
+  nDMBEvents.clear();
+  unpackedDMBcount = 0;
+  logger_ = "CSC_DQM:";
+  dduCheckMask = 0xFFFFFFFF;
+  binCheckMask = 0xFFFFFFFF;
+  xmlHistosBookingCfgFile = "";
 }
 
-
-void CSCMonitor::process(CSCDCCEventData & dccData )
+void CSCMonitor::clearMECollection(ME_List & collection) 
 {
-   
-  nEvents = nEvents +1;
-        
-   const std::vector<CSCDDUEventData> & dduData = dccData.dduData(); 
 
-  //edm::LogInfo ("CSC DQM ") << "CSCMonitor::process #" << dec << nEvents 
-      //       << "> Number of DDU = " <<dduData.size();
-        
-
-   for (int ddu=0; ddu<(int)dduData.size(); ++ddu) { 
-   
-         this->MonitorDDU(dduData[ddu], ddu );
-   
-      }
-      
-      
-  if((!(nEvents%saveRootFileEventsInterval ))&&(saveRootFile ) ) {
-    dbe->save(RootFileName);
+  if (collection.size() > 0) {
+    for (ME_List_iterator itr = collection.begin();itr != collection.end(); ++itr) {
+      delete itr->second;
+    }
+    collection.clear();
   }
-   
- // usleep(100000);
+
+}
+void CSCMonitor::printMECollection(ME_List & collection)
+{
+  int i = 0;
+  for (ME_List_iterator itr = collection.begin();itr != collection.end(); ++itr) {
+    LOG4CPLUS_DEBUG(logger_, ++i << ":" << itr->first << ":" << itr->second->getFullName());
+  }
+
 }
 
 
+CSCMonitor::~CSCMonitor() {
+  std::map<std::string, ME_List >::iterator itr;	
+  for (itr = MEs.begin(); itr != MEs.end(); ++itr) {
+    clearMECollection(itr->second);
+  }
 
+  MEs.clear();
+  clearMECollection(commonMEfactory);
+  clearMECollection(chamberMEfactory);
+  clearMECollection(dduMEfactory);
+}
 
+void CSCMonitor::loadBooking() {
+  if (MEs.size() > 0) {
+    std::map<std::string, ME_List >::iterator itr;
+    for (itr = MEs.begin(); itr != MEs.end(); ++itr) {
+      clearMECollection(itr->second);
+    }
+    MEs.clear();
+  }
 
+  if (loadXMLBookingInfo(xmlHistosBookingCfgFile) == 0) 
+    {
+      setParameters();
+    }
+
+}
+
+bool CSCMonitor::isMEvalid(ME_List& MEs, string name, CSCMonitorObject*& me, uint32_t mask)
+{
+  if ((unpackMask & mask)==0) return false;
+  ME_List_iterator res = MEs.find(name);
+  if (res != MEs.end() && (res->second != 0)) {
+    me = res->second;
+    return true;
+  } else {
+		
+    // edm::LogWarning ("CSC DQM: ") << "Can not find ME " << name;
+    LOG4CPLUS_WARN(logger_, "Can not find ME " << name);
+    me = 0;
+    return false;
+  }
+	
+}
 
 #include "FWCore/ServiceRegistry/interface/ServiceMaker.h"
 
