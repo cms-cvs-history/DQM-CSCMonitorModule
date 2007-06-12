@@ -11,7 +11,7 @@ ME_List CSCMonitor::bookCommon(int nodeNumber)
 	for (itr = commonMEfactory.begin(); itr != commonMEfactory.end(); ++itr) {
 		// dbe->setCurrentFolder(dir);
 		CSCMonitorObject * obj = new CSCMonitorObject(*itr->second);
-		obj->setPrefix(prefix+"_");
+		// obj->setPrefix(prefix+"_");
 		commonMEs[obj->getName()] = obj;
 		dbe->setCurrentFolder(dir+"/"+obj->getFolder());
 		obj->Book(dbe);
@@ -34,7 +34,7 @@ ME_List CSCMonitor::bookDDU(int dduNumber)
 	for (itr = dduMEfactory.begin(); itr != dduMEfactory.end(); ++itr) {
 		// dbe->setCurrentFolder(dir);
 		CSCMonitorObject* obj = new CSCMonitorObject(*itr->second);
-		obj->setPrefix(prefix+"_");
+		// obj->setPrefix(prefix+"_");
 		dduMEs[obj->getName()] = obj;
 		dbe->setCurrentFolder(dir+"/"+obj->getFolder());
 		obj->Book(dbe);
@@ -63,7 +63,7 @@ ME_List CSCMonitor::bookChamber(int chamberID)
 	for (itr = chamberMEfactory.begin(); itr != chamberMEfactory.end(); ++itr) {
 		// dbe->setCurrentFolder(dir);
 		CSCMonitorObject* obj = new CSCMonitorObject(*itr->second);
-		obj->setPrefix(prefix+"_");
+		// obj->setPrefix(prefix+"_");
 		chamberMEs[obj->getName()] = obj;
 		dbe->setCurrentFolder(dir+"/"+obj->getFolder());
 		obj->Book(dbe);

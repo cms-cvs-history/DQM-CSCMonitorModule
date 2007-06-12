@@ -30,6 +30,8 @@
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 #include "DQMServices/Core/interface/DaqMonitorBEInterface.h"
+#include "CondFormats/CSCObjects/interface/CSCReadoutMappingFromFile.h"
+
 
 /* Normal calls to CMSSW source tree */
 #include "EventFilter/CSCRawToDigi/interface/CSCMonitorInterface.h"
@@ -136,6 +138,8 @@ class CSCMonitor : public CSCMonitorInterface {
  protected:
 
   void setParameters(); 
+  void getCSCFromMap(int crate, int slot, int& csctype, int& cscposition);
+
   int loadXMLBookingInfo(string xmlFile);
   int loadXMLCanvasesInfo(string xmlFile);
   void clearMECollection(ME_List &collection);
@@ -146,6 +150,10 @@ class CSCMonitor : public CSCMonitorInterface {
   void createTreeTemplate(std::string path);
   void createTreeEngine(std::string path);
   void createTreePage(std::string path);
+  std::map<std::string, int> getCSCTypeToBinMap();
+  std::string getCSCTypeLabel(int endcap, int station, int ring );
+ 
+
 
 
 
@@ -184,6 +192,9 @@ class CSCMonitor : public CSCMonitorInterface {
 
   // back-end interface
   DaqMonitorBEInterface * dbe;
+  // CSC Mapping
+  CSCReadoutMappingFromFile cscMapping;
+  std::map<std::string, int> tmap;
 
 
 };

@@ -5,13 +5,13 @@
 //	Filling of chamber's histogram
 void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 0) {
   if (&data==0) {
-    LOG4CPLUS_DEBUG(logger_, 
-		    "Zero pointer. DMB data are not available for unpacking"); //KK is->are
+//    LOG4CPLUS_DEBUG(logger_, 
+//		    "Zero pointer. DMB data are not available for unpacking"); //KK is->are
     return;
   }
   else {
-    LOG4CPLUS_DEBUG(logger_, 
-		    "Nonzero pointer. DMB data are available for unpacking"); //KK is->are
+  //  LOG4CPLUS_DEBUG(logger_, 
+//		    "Nonzero pointer. DMB data are available for unpacking"); //KK is->are
   }
   int FEBunpacked = 0;
   int alct_unpacked = 0;
@@ -28,24 +28,24 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
   //	Unpacking of DMB Header and trailer
   CSCDMBHeader dmbHeader;
   CSCDMBTrailer dmbTrailer;
-  LOG4CPLUS_DEBUG(logger_,
-		  "Unpacking of DMB Header and Trailer ... ");
+  // LOG4CPLUS_DEBUG(logger_,
+//		  "Unpacking of DMB Header and Trailer ... ");
   dmbHeader  = data.dmbHeader();
   dmbTrailer = data.dmbTrailer();
-  LOG4CPLUS_DEBUG(logger_, "Done.");
+  // LOG4CPLUS_DEBUG(logger_, "Done.");
 
   //	Unpacking of Chamber Identification number
   int crateID	= 0xFF;
   int dmbID	= 0xF;
   int ChamberID	= 0xFFF;
 	
-  LOG4CPLUS_DEBUG(logger_, 
-		  "Unpacking of Chamber ID ... ");
+ // LOG4CPLUS_DEBUG(logger_, 
+//		  "Unpacking of Chamber ID ... ");
   crateID		= dmbHeader.crateID();
   dmbID		= dmbHeader.dmbID();
   ChamberID	= (((crateID) << 4) + dmbID) & 0xFFF;
 
-  LOG4CPLUS_DEBUG(logger_, "Done");
+  // LOG4CPLUS_DEBUG(logger_, "Done");
   // LOG4CPLUS_INFO(logger_, 
   //		  "Chamber ID = "<< ChamberID << " Crate ID = "<< crateID << " DMB ID = " << dmbID);
 
@@ -53,20 +53,20 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
   string dduTag(Form("DDU_%d", dduID));
   string cscTag(Form("CSC_%03d_%02d", crateID, dmbID));
   nDMBEvents[cscTag]++;
-  LOG4CPLUS_INFO(logger_,
-		 "Unpacking " << cscTag << " (Event: " << nDMBEvents[cscTag]<< ")");
+  // LOG4CPLUS_INFO(logger_,
+//		 "Unpacking " << cscTag << " (Event: " << nDMBEvents[cscTag]<< ")");
 
   //	Creating list of histograms for the particular chamber
   map<string, ME_List >::iterator h_itr = MEs.find(cscTag);
   if (h_itr == MEs.end() || (MEs.size()==0)) {
     LOG4CPLUS_WARN(logger_,
 		   "List of Histos for " << cscTag <<  " not found");
-    LOG4CPLUS_DEBUG(logger_, 
-		    "Booking Histos for " << cscTag);
+  //  LOG4CPLUS_DEBUG(logger_, 
+//		    "Booking Histos for " << cscTag);
     fBusy = true;
     MEs[cscTag] = bookChamber(ChamberID);
     // MECanvases[cscTag] = bookChamberCanvases(ChamberID);
-    printMECollection(MEs[cscTag]);
+   // printMECollection(MEs[cscTag]);
     fBusy = false;
   }
 
@@ -74,6 +74,12 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
   // ME_List& dduME = MEs[dduTag];
   ME_List& cscME = MEs[cscTag];
 
+
+  int CSCtype = 0;
+  int CSCposition = 0;
+  this->getCSCFromMap(crateID, dmbID, CSCtype, CSCposition ); 
+  if (CSCtype && CSCposition && isMEvalid(nodeME, "CSC_Mapped_Unpacked", mo, UNPACK_CSC)) 
+	mo->Fill(CSCposition-1, CSCtype);  
 
 
   //    Efficiency of the chamber
@@ -93,8 +99,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
   dmbHeaderL1A = dmbHeader.l1a();
   //          Calculate difference between L1A numbers from DDU and DMB
   dmb_ddu_l1a_diff = (int)(dmbHeaderL1A-(int)(L1ANumber&0xFF));
-  LOG4CPLUS_DEBUG(logger_, "DMB(ID=" << ChamberID  << ") L1A = " << dmbHeaderL1A
-		  << " : DMB L1A - DDU L1A = " << dmb_ddu_l1a_diff);
+  // LOG4CPLUS_DEBUG(logger_, "DMB(ID=" << ChamberID  << ") L1A = " << dmbHeaderL1A
+//		  << " : DMB L1A - DDU L1A = " << dmb_ddu_l1a_diff);
 
   if (isMEvalid(cscME, "DMB_L1A_Distrib", mo, UNPACK_DMB)) mo->Fill(dmbHeaderL1A);
 
@@ -140,8 +146,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
   dmbHeaderBXN = dmbHeader.bxn();
   //          Calculation difference between BXN numbers from DDU and DMB
   dmb_ddu_bxn_diff = (int)(dmbHeaderBXN-(int)(BXN&0x7F));
-  LOG4CPLUS_DEBUG(logger_, "DMB(ID=" << ChamberID  << ") BXN = " << dmbHeaderBXN
-		  << " : DMB BXN - DDU BXN = " << dmb_ddu_bxn_diff);
+  // LOG4CPLUS_DEBUG(logger_, "DMB(ID=" << ChamberID  << ") BXN = " << dmbHeaderBXN
+//		  << " : DMB BXN - DDU BXN = " << dmb_ddu_bxn_diff);
   if (isMEvalid(cscME,"DMB_BXN_Distrib", mo, UNPACK_DMB)) mo->Fill((int)(dmbHeader.bxn()));
 
   if (isMEvalid(cscME, "DMB_DDU_BXN_diff", mo, UNPACK_DMB)) {
@@ -345,8 +351,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 
       if (isMEvalid(cscME, "ALCT_Word_Count", mo)) mo->Fill((int)(alctTrailer.wordCount()));
 
-      LOG4CPLUS_DEBUG(logger_, "ALCT Trailer Word Count = " << dec
-		      << (int)alctTrailer.wordCount());
+  //    LOG4CPLUS_DEBUG(logger_, "ALCT Trailer Word Count = " << dec
+//		      << (int)alctTrailer.wordCount());
 
       if (alctsDatas.size()==2) {
 	if (isMEvalid(cscME, "ALCT1_vs_ALCT0_KeyWG", mo)) mo->Fill(alctsDatas[0].getKeyWG(),alctsDatas[1].getKeyWG());
@@ -607,8 +613,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
       }
 
       if (isMEvalid(cscME, "TMB_Word_Count", mo)) mo->Fill((int)(tmbTrailer.wordCount()));
-      LOG4CPLUS_DEBUG(logger_, "TMB Trailer Word Count = "
-		      << dec << (int)tmbTrailer.wordCount());
+  //    LOG4CPLUS_DEBUG(logger_, "TMB Trailer Word Count = "
+//		      << dec << (int)tmbTrailer.wordCount());
 
 
       for (uint32_t lct=0; lct<clctsDatas.size(); lct++) {
@@ -629,8 +635,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 	// LOG4CPLUS_DEBUG(logger_, "CLCT BX = " << clctsDatas[lct].getBX() << " TMB BX = " << tmbHeader.BXNCount() << " 03 = " << (int)(tmbHeader.BXNCount()&0x3));
 	// LOG4CPLUS_DEBUG(logger_, "diff = " << clctsDatas[lct].getBX()-(tmbHeader.BXNCount()&0x3));
 
-	LOG4CPLUS_DEBUG(logger_, "LCT:" << lct << " Type:" << clctsDatas[lct].getStripType()
-			<< " Strip:" << clctsDatas[lct].getKeyStrip());
+//	LOG4CPLUS_DEBUG(logger_, "LCT:" << lct << " Type:" << clctsDatas[lct].getStripType()
+//			<< " Strip:" << clctsDatas[lct].getKeyStrip());
 	if (clctsDatas[lct].getStripType()) { // HalfStrip Type
 	  if (isMEvalid(cscME,  Form("CLCT%d_KeyHalfStrip", lct), mo)) mo->Fill(clctsDatas[lct].getKeyStrip());
 
@@ -848,10 +854,10 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 	  //-------------B
 	  NmbTimeSamples= (cfebData[nCFEB])->nTimeSamples();
 	  //-------------E
-	  LOG4CPLUS_DEBUG(logger_, "nEvents = " << nEvents);
-	  LOG4CPLUS_DEBUG(logger_, "Chamber ID = "<< cscTag << " Crate ID = "<< crateID
-			  << " DMB ID = " << dmbID
-			  << "nCFEB =" << nCFEB);
+//	  LOG4CPLUS_DEBUG(logger_, "nEvents = " << nEvents);
+//	  LOG4CPLUS_DEBUG(logger_, "Chamber ID = "<< cscTag << " Crate ID = "<< crateID
+//			  << " DMB ID = " << dmbID
+//			  << "nCFEB =" << nCFEB);
 
 	  // =VB= Optimizations for faster histogram object access 
 	  CSCMonitorObject* mo_CFEB_SCA_Block_Occupancy = 0;
@@ -967,7 +973,7 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 		if (isMEvalid(cscME, Form("CFEB%d_LCT_PHASE_vs_L1A_PHASE", nCFEB), mo)) 
 		  mo->Fill(LCTPhase, L1APhase);
 
-		LOG4CPLUS_DEBUG(logger_, "L1APhase " << L1APhase << " UnpackedTrigTime " << UnpackedTrigTime);
+	//	LOG4CPLUS_DEBUG(logger_, "L1APhase " << L1APhase << " UnpackedTrigTime " << UnpackedTrigTime);
 
 		if (isMEvalid(cscME, Form("CFEB%d_L1A_Sync_Time_vs_DMB", nCFEB), mo))  
 		  mo->Fill((int)(dmbHeader.dmbCfebSync()), (int)UnpackedTrigTime);
@@ -988,14 +994,14 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 	      for(int nStrip = 1; nStrip <= N_Strips; ++nStrip) {
 		timeSample[nCFEB][nSample][nLayer][nStrip]=(data.cfebData(nCFEB)->timeSlice(nSample))->timeSample(nLayer,nStrip);
 		ADC = (int) ((timeSample[nCFEB][nSample][nLayer][nStrip]->adcCounts)&0xFFF);
-		LOG4CPLUS_DEBUG(logger_, " nStrip="<< dec << nStrip << " ADC=" << hex << ADC);
+		// LOG4CPLUS_DEBUG(logger_, " nStrip="<< dec << nStrip << " ADC=" << hex << ADC);
 		OutOffRange = (int) ((timeSample[nCFEB][nSample][nLayer][nStrip]->adcOverflow)&0x1);
 
 		if(nSample == 0) { // nSample == 0
 		  CellPeak[nCFEB][nLayer][nStrip] = std::make_pair(nSample,ADC);
 		  Pedestal[nCFEB][nLayer][nStrip] = ADC;
-		  LOG4CPLUS_DEBUG(logger_, " nStrip="<< dec << nStrip
-				  << " Pedestal=" << hex << Pedestal[nCFEB][nLayer][nStrip]);
+		  // LOG4CPLUS_DEBUG(logger_, " nStrip="<< dec << nStrip
+		//		  << " Pedestal=" << hex << Pedestal[nCFEB][nLayer][nStrip]);
 		  //--------------B
 		  /*
 		    hname = Form("hist/h%sCFEB_PedestalRMS_Sample_01_Ly%d_Strip%d", CSCTag.c_str(), nLayer, nStrip);
@@ -1043,8 +1049,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 		  }
 		  //--------------B
 		  if(ADC - Pedestal[nCFEB][nLayer][nStrip] > Threshold) {
-		    LOG4CPLUS_DEBUG(logger_, "Layer="<<nLayer<<" Strip="<<nCFEB*16+nStrip<<" Time="<<nSample
-				    << " ADC-PEDEST = "<<ADC - Pedestal[nCFEB][nLayer][nStrip]);
+		  //  LOG4CPLUS_DEBUG(logger_, "Layer="<<nLayer<<" Strip="<<nCFEB*16+nStrip<<" Time="<<nSample
+		//		    << " ADC-PEDEST = "<<ADC - Pedestal[nCFEB][nLayer][nStrip]);
 		    cscdata[nCFEB*16+nStrip-1][nSample][nLayer-1] = ADC - Pedestal[nCFEB][nLayer][nStrip];
 		  }	
 		  //--------------E
@@ -1116,8 +1122,8 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 	    }
 	  }
 
-	  LOG4CPLUS_DEBUG(logger_, "***  CATHODE PART  DEBUG: Layer="<<nLayer
-			  <<"  Number of Clusters="<<Clus.size()<<"      ***");
+	  // LOG4CPLUS_DEBUG(logger_, "***  CATHODE PART  DEBUG: Layer="<<nLayer
+	//		  <<"  Number of Clusters="<<Clus.size()<<"      ***");
 	  //          Number of Clusters Histograms
 	  if (isMEvalid(cscME, Form("CFEB_Number_of_Clusters_Ly_%d", nLayer), mo, UNPACK_CFEB_CLUSTERS)) {
 	    if(Clus.size() >= 0)  mo->Fill(Clus.size());
@@ -1126,7 +1132,7 @@ void CSCMonitor::monitorCSC(const CSCEventData& data, int nodeID=0, int dduID = 
 	  for(uint32_t u=0;u<Clus.size();u++){
 	    Clus_Sum_Charge = 0.0;
 	    for(uint32_t k=0;k<Clus[u].ClusterPulseMapHeight.size();k++) {
-	      LOG4CPLUS_DEBUG(logger_, "Strip: " << Clus[u].ClusterPulseMapHeight[k].channel_+1);
+	  //    LOG4CPLUS_DEBUG(logger_, "Strip: " << Clus[u].ClusterPulseMapHeight[k].channel_+1);
 
 	      for(int n=Clus[u].LFTBNDTime; n < Clus[u].IRTBNDTime; n++){
 		Clus_Sum_Charge = Clus_Sum_Charge + Clus[u].ClusterPulseMapHeight[k].height_[n];

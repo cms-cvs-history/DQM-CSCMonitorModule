@@ -250,7 +250,6 @@ int CSCMonitorObject::Book(DaqMonitorBEInterface* dbe)
       std::map<int, std::string> labels = ParseAxisLabels(itr->second);
       for (std::map<int, std::string>::iterator l_itr = labels.begin(); l_itr != labels.end(); ++l_itr)
 	{
-	  // object->GetXaxis()->SetBinLabel(l_itr->first, l_itr->second.c_str());
 	  object->setBinLabel(l_itr->first, l_itr->second,1);
 	}
 
@@ -260,7 +259,6 @@ int CSCMonitorObject::Book(DaqMonitorBEInterface* dbe)
       std::map<int, std::string> labels = ParseAxisLabels(itr->second);
       for (std::map<int, std::string>::iterator l_itr = labels.begin(); l_itr != labels.end(); ++l_itr)
 	{
-	  // object->GetYaxis()->SetBinLabel(l_itr->first, l_itr->second.c_str());
 	  object->setBinLabel(l_itr->first, l_itr->second,2);
 	}
     }
@@ -271,9 +269,8 @@ int CSCMonitorObject::Book(DaqMonitorBEInterface* dbe)
 	std::string axis = st.substr(st.find(",")+1,st.length());
 	MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
 	if (ob) {
-	  // ob->operator->()->LabelsOption(opt.c_str(),axis.c_str());
+	  ( (TH1 *) ob->operator->() )->LabelsOption(opt.c_str(),axis.c_str());
 	}
-	// object->LabelsOption(opt.c_str(),axis.c_str());
       }
     }
     if ((itr = params.find("SetLabelSize")) != params.end()) {
@@ -283,9 +280,8 @@ int CSCMonitorObject::Book(DaqMonitorBEInterface* dbe)
 	std::string axis = st.substr(st.find(",")+1,st.length());
 	MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
 	if (ob) {
-	  // ob->operator->()->SetLabelSize(opt,axis.c_str());
+	  ( (TH1 *) ob->operator->() )->SetLabelSize(opt,axis.c_str());
 	}
-	// object->SetLabelSize(opt,axis.c_str());
       }
     }
     if ((itr = params.find("SetTitleOffset")) != params.end()) {
@@ -295,21 +291,68 @@ int CSCMonitorObject::Book(DaqMonitorBEInterface* dbe)
 	std::string axis = st.substr(st.find(",")+1,st.length());
 	MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
 	if (ob) {
-	  // ob->operator->()->SetTitleOffset(opt,axis.c_str());
+	  ( (TH1 *) ob->operator->() )->SetTitleOffset(opt,axis.c_str());
 	}
-	// object->SetTitleOffset(opt,axis.c_str());
       }
     }
-    MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
-    if (ob) {
-	// std::cerr << "Casted " << this->getFullName() << std::endl;
-	( (TH1F *) ob->operator->() )->SetFillColor(DEF_HISTO_COLOR);
-//        ob->operator->()->SetFillColor(DEF_HISTO_COLOR);
-    } else {
-	// std::cerr << "Unable to cast " << this->getFullName() << std::endl;
+
+    if ((itr = params.find("SetNdivisionsX")) != params.end()) {
+      int opt = strtol( itr->second.c_str(), &stopstring, 10 );
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->SetNdivisions(opt,"X");
+      }
     }
 
-    // object->SetFillColor(DEF_HISTO_COLOR);
+    if ((itr = params.find("SetNdivisionsY")) != params.end()) {
+      int opt = strtol( itr->second.c_str(), &stopstring, 10 );
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->SetNdivisions(opt,"Y");
+      }
+    }
+
+    if ((itr = params.find("SetTickLengthX")) != params.end()) {
+      std::string st = itr->second;
+      double opt = atof(st.c_str()) ;
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->SetTickLength(opt,"X");
+      }
+    }
+    
+    if ((itr = params.find("SetTickLengthY")) != params.end()) {
+      std::string st = itr->second;
+      double opt = atof(st.c_str()) ;
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->SetTickLength(opt,"Y");
+      }
+    }
+
+    if ((itr = params.find("SetLabelSizeX")) != params.end()) {
+      std::string st = itr->second;
+      double opt = atof(st.c_str()) ;  
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->GetXaxis()->SetLabelSize(opt);
+      }
+    }
+
+    if ((itr = params.find("SetLabelSizeY")) != params.end()) {
+      std::string st = itr->second;
+      double opt = atof(st.c_str()) ;
+      MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+      if (ob) {
+        ( (TH1 *) ob->operator->() )->GetYaxis()->SetLabelSize(opt);
+      }
+    }
+
+    MonitorElementT<TNamed> * ob = dynamic_cast<MonitorElementT<TNamed>*>(object);
+    if (ob) {
+	( (TH1F *) ob->operator->() )->SetFillColor(DEF_HISTO_COLOR);
+    }
+
   }
 
   return 0;

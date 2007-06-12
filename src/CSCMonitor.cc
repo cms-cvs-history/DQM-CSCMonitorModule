@@ -13,6 +13,9 @@ CSCMonitor::CSCMonitor(const edm::ParameterSet& iConfig )
   fSaveHistos  = iConfig.getUntrackedParameter<bool>("CSCDQMSaveRootFile", false);
   saveRootFileEventsInterval  = iConfig.getUntrackedParameter<int>("EventsInterval", 20000);
   RootHistoFile  = iConfig.getUntrackedParameter<std::string>("RootFileName", "CSCMonitor.root");
+
+  // CSC Mapping
+  cscMapping  = CSCReadoutMappingFromFile(iConfig);
       
   this->loadBooking();
 
@@ -38,6 +41,7 @@ void CSCMonitor::setParameters()
   dduCheckMask = 0xFFFFFFFF;
   binCheckMask = 0xFFFFFFFF;
   xmlHistosBookingCfgFile = "";
+  tmap = getCSCTypeToBinMap();
 }
 
 void CSCMonitor::clearMECollection(ME_List & collection) 
@@ -86,6 +90,82 @@ void CSCMonitor::loadBooking() {
     {
       setParameters();
     }
+
+}
+
+std::map<std::string, int> CSCMonitor::getCSCTypeToBinMap()
+{
+	std::map<std::string, int> tmap;
+	tmap["ME-4/2"] = 0;
+	tmap["ME-4/1"] = 1;	
+        tmap["ME-3/2"] = 2;
+	tmap["ME-3/1"] = 3;
+	tmap["ME-2/2"] = 4;
+	tmap["ME-2/1"] = 5;
+	tmap["ME-1/3"] = 6;
+	tmap["ME-1/2"] = 7;
+	tmap["ME-1/1"] = 8;
+	tmap["ME+1/1"] = 9;
+	tmap["ME+1/2"] = 10;
+	tmap["ME+1/3"] = 11;
+	tmap["ME+2/1"] = 12;
+	tmap["ME+2/2"] = 13;
+	tmap["ME+3/1"] = 14;
+	tmap["ME+3/2"] = 15;
+	tmap["ME+4/1"] = 16;
+	tmap["ME+4/2"] = 17;
+	return tmap;
+	
+}
+
+std::string CSCMonitor::getCSCTypeLabel(int endcap, int station, int ring )
+{
+	std::string label = "Unknown";
+	std::ostringstream st;
+	if ((endcap > 0) && (station>0) && (ring>0)) {
+		if (endcap==1) {
+			st << "ME+" << station << "/" << ring;
+			label = st.str();
+		} else if (endcap==2) {
+			st << "ME-" << station << "/" << ring;
+                        label = st.str();
+		} else {
+			label = "Unknown";
+		}
+	}
+	return label;
+}
+
+void CSCMonitor::getCSCFromMap(int crate, int slot, int& csctype, int& cscposition)
+{
+//  LOG4CPLUS_INFO(logger_, "========== get CSC from Map crate" << crate << " slot" << slot);
+  int iendcap = -1;
+  int istation = -1;
+  int iring = -1;
+  // TODO: Add actual Map conversion
+  int id = cscMapping.chamber(iendcap, istation, crate, slot, -1);
+  if (id==0) { 
+	return;
+  }
+  CSCDetId cid( id );
+  iendcap = cid.endcap();
+  istation = cid.station();
+  iring = cid.ring();
+  cscposition = cid.chamber();
+
+//  std::map<std::string, int> tmap = getCSCTypeToBinMap();
+  std::string tlabel = getCSCTypeLabel(iendcap, istation, iring );
+  std::map<std::string,int>::const_iterator it = tmap.find( tlabel );
+  if (it != tmap.end()) {
+	csctype = it->second;
+//	LOG4CPLUS_INFO(logger_, "========== get CSC from Map label:" << tlabel << "/" << cscposition);
+  } else {
+//	LOG4CPLUS_INFO(logger_, "========== can not find map");
+	csctype = 0;
+  }
+ 
+  // return bin number which corresponds for CSC Type (ex. ME+4/2 -> bin 18)  
+  
 
 }
 
