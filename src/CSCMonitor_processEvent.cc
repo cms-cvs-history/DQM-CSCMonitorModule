@@ -29,8 +29,9 @@ void CSCMonitor::process(CSCDCCExaminer * examiner, CSCDCCEventData * dccData )
     dbe->save(RootHistoFile);
     //    this->saveToROOTFile(RootHistoFile);
   }
-
-  // usleep(100000);
+ 
+  // !!! For DEBUG Only. Comment line below for production release
+  // usleep(10000);
 }
 
 
