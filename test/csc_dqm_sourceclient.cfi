@@ -1,0 +1,55 @@
+    
+    service = DQMStore {
+      untracked string referenceFileName = ""
+      untracked int32 verbose = 0
+    }
+
+    module dqmClient = CSCMonitorModule {
+
+	# Base name for monitor folders and output file		
+	untracked string monitorName = "CSC"
+
+        # Source element name in the Event sandwich
+        untracked InputTag InputObjects = source
+
+        # Histogram booking file
+        FileInPath  BookingFile = "DQM/CSCMonitorModule/test/emuDQMBooking.xml"
+
+        # CSC Mapping file (used by CondFormats/CSCObjects/interface/CSCReadoutMappingFromFile.h not me)
+        FileInPath theMappingFile = "DQM/CSCMonitorModule/test/csc_map.txt"
+
+        # Examiner complains into cout/cerr or not
+        untracked bool ExaminerOutput = false
+
+        # Examiner mask
+        untracked uint32 ExaminerMask = 0x16ebf3f6
+
+        # Examiner crc key (1 - ALCT, 2 - CFEB, 4 - TMB), default 0 (no crc checks)
+        untracked uint32 ExaminerCRCKey = 7
+
+    }
+
+    service = MessageLogger {
+
+      untracked vstring destinations = { 
+        "detailedInfo" , "critical" , "cout"
+      }
+
+      untracked vstring debugModules = { "*" }
+
+      untracked vstring suppressInfo = { "source" }
+
+      untracked PSet critical     = { untracked string threshold = "ERROR"   }
+
+      untracked PSet detailedInfo = { untracked string threshold = "INFO"    } 
+
+      untracked PSet cout = {
+        untracked string threshold = "INFO"
+        untracked bool noLineBreaks = false
+        untracked PSet WARNING = {untracked int32 limit = 0 }
+      }
+
+    }
+
+    include "DQMServices/Components/test/dqm_onlineEnv.cfi"
+
