@@ -1,4 +1,39 @@
-    
+
+    include "CondCore/DBCommon/data/CondDBSetup.cfi"
+
+    es_source cscConditions = PoolDBESSource {
+      using CondDBSetup
+      VPSet toGet = {
+        { string record = "CSCChamberIndexRcd"
+          string tag = "CSCChamberIndex" },
+        { string record = "CSCChamberMapRcd"
+          string tag = "CSCChamberMap" },
+        { string record = "CSCCrateMapRcd"
+          string tag = "CSCCrateMap" },
+        { string record = "CSCDDUMapRcd"
+          string tag = "CSCDDUMap" }
+      }
+
+      string timetype = "runnumber"
+
+      # To be used on CMS network (one of them)
+      #string connect = "frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_20X_CSC"
+      #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_170_CSC"
+      #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_18x_CSC"
+
+      # To be used on lxplus
+      string connect = "frontier://FrontierDev/CMS_COND_CSC"
+
+      untracked bool siteLocalConfig = false
+      untracked uint32 authenticationMethod = 1
+      untracked uint32 messagelevel = 0
+    }
+
+    service = DQMStore {
+      untracked string referenceFileName = ""
+      untracked int32 verbose = 0
+    }
+
     module dqmClient = CSCMonitorModule {
 
 	# Base name for monitor folders and output file		
@@ -10,8 +45,9 @@
         # Histogram booking file
         FileInPath  BookingFile = "DQM/CSCMonitorModule/data/emuDQMBooking.xml"
 
+        # Outdated and should be removed soon (2008-04-29)
         # CSC Mapping file (used by CondFormats/CSCObjects/interface/CSCReadoutMappingFromFile.h not me)
-        FileInPath theMappingFile = "DQM/CSCMonitorModule/data/csc_map.txt"
+        # FileInPath theMappingFile = "DQM/CSCMonitorModule/data/csc_map.txt"
 
         # Examiner complains into cout/cerr or not
         untracked bool ExaminerOutput = false
