@@ -40,10 +40,6 @@
         # Histogram booking file
         FileInPath  BookingFile = "DQM/CSCMonitorModule/data/emuDQMBooking.xml"
 
-        # Outdated and should be removed soon (2008-04-29)
-        # CSC Mapping file (used by CondFormats/CSCObjects/interface/CSCReadoutMappingFromFile.h not me)
-        FileInPath theMappingFile = "DQM/CSCMonitorModule/data/csc_map.txt"
-
         # Examiner complains into cout/cerr or not
         untracked bool ExaminerOutput = false
 
