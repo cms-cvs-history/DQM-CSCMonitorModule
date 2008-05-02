@@ -51,6 +51,11 @@
 
     }
 
+    service = DQMStore {
+      untracked string referenceFileName = "" 
+      untracked int32 verbose = 0 
+    }
+
     service = MessageLogger {
 
       untracked vstring destinations = { 
