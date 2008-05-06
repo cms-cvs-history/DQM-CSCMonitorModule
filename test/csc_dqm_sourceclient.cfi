@@ -52,9 +52,9 @@
         # DDU's to book on startup
         untracked vuint32 preBookDDU = {
           # Plus  Endcap DDUs (01-18), all: 0x3FFFF
-          0x3FFFF,
+          0x0,
           # Minus Endcap DDUs (19-36), all: 0x3FFFF
-          0x0
+          0x3FFFF
         }
 
         # Book DDU on hit
