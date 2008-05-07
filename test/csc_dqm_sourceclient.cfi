@@ -60,6 +60,14 @@
         # Book DDU on hit
         untracked bool hitBookDDU = true
 
+        # Fractional histos update key (1 - on Run end, 2 - on Luminosity
+        # section end, 4 - each k runs, see FractUpdateEventFreq parameter) 
+        # default = 1
+        untracked uint32 FractUpdateKey = 5
+
+        # Fractional histogram updates each n events, default is 1. 
+        # This works only in the case then FractUpdateKey is set to 4
+        untracked uint32 FractUpdateEventFreq = 1000
     }
 
     service = MessageLogger {
