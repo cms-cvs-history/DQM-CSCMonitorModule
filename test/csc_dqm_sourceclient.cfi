@@ -91,3 +91,8 @@
 
     }
 
+    #module qTester = QualityTester {
+    #  untracked FileInPath qtList = "DQM/CSCMonitorModule/test/QualityTests.xml"
+    #  untracked int32 prescaleFactor = 1
+    #}
+
