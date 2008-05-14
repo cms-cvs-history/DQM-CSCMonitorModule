@@ -66,7 +66,7 @@
 
         # Fractional histogram updates each n events, default is 1. 
         # This works only in the case then FractUpdateKey is set to 4
-        untracked uint32 FractUpdateEventFreq = 10
+        untracked uint32 FractUpdateEventFreq = 1
     }
 
     service = MessageLogger {
@@ -94,5 +94,7 @@
     module qTester = QualityTester {
       untracked FileInPath qtList = "DQM/CSCMonitorModule/test/QualityTests.xml"
       untracked int32 prescaleFactor = 1
+      untracked bool getQualityTestsFromFile = true
+      untracked string reportThreshold = "red"
     }
 
