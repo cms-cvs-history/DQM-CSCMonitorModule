@@ -93,7 +93,8 @@
 
     module qTester = QualityTester {
       untracked FileInPath qtList = "DQM/CSCMonitorModule/test/QualityTests.xml"
-      untracked int32 prescaleFactor = 1
+      untracked int32 eventPrescaleFactor = 100
+      untracked int32 lumiPrescaleFactor  = 0
       untracked bool getQualityTestsFromFile = true
       untracked string reportThreshold = "red"
     }
