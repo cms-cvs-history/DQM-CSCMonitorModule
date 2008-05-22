@@ -49,14 +49,6 @@
         # Examiner crc key (1 - ALCT, 2 - CFEB, 4 - TMB), default 0 (no crc checks)
         untracked uint32 ExaminerCRCKey = 7
 
-        # DDU's to book on startup
-        untracked vuint32 preBookDDU = {
-          # Plus  Endcap DDUs (01-18), all: 0x3FFFF
-          0x0,
-          # Minus Endcap DDUs (19-36), all: 0x3FFFF
-          0x0
-        }
-
         # Book DDU on hit
         untracked bool hitBookDDU = true
 
