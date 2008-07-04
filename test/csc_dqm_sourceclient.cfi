@@ -17,12 +17,12 @@
       string timetype = "runnumber"
 
       # To be used on CMS network (one of them)
-      #string connect = "frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_20X_CSC"
+      string connect = "frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_20X_CSC"
       #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_170_CSC"
       #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_18x_CSC"
 
       # To be used on lxplus
-      string connect = "frontier://FrontierDev/CMS_COND_CSC"
+      #string connect = "frontier://FrontierDev/CMS_COND_CSC"
 
       untracked bool siteLocalConfig = false
       untracked uint32 authenticationMethod = 1
@@ -58,7 +58,7 @@
 
         # Fractional histogram updates each n events, default is 1. 
         # This works only in the case then FractUpdateKey is set to 4
-        untracked uint32 FractUpdateEventFreq = 1000
+        untracked uint32 FractUpdateEventFreq = 10
 
         # Address mask: the list of HW addresses that are known to have problems
         # Masks are formed this way: "[side], [station], [ring], [chamber], [layer], [cfeb], [hv]"
@@ -97,10 +97,10 @@
 
     }
 
-    module qTester = QualityTester {
-      untracked FileInPath qtList = "DQM/CSCMonitorModule/test/QualityTests.xml"
-      untracked int32 prescaleFactor  = 1
-      untracked bool getQualityTestsFromFile = true
-      untracked string reportThreshold = "red"
-    }
+    #module qTester = QualityTester {
+    #  untracked FileInPath qtList = "DQM/CSCMonitorModule/test/QualityTests.xml"
+    #  untracked int32 prescaleFactor  = 1
+    #  untracked bool getQualityTestsFromFile = true
+    #  untracked string reportThreshold = "red"
+    #}
 
