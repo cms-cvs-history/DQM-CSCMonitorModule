@@ -17,12 +17,12 @@
       string timetype = "runnumber"
 
       # To be used on CMS network (one of them)
-      string connect = "frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_20X_CSC"
+      #string connect = "frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_20X_CSC"
       #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_170_CSC"
       #string connect = "frontier://(serverurl=http://frontier1.cms:8000/FrontierOn)(serverurl=http://frontier2.cms:8000/FrontierOn)(retrieve-ziplevel=0)/CMS_COND_ON_18x_CSC"
 
       # To be used on lxplus
-      #string connect = "frontier://FrontierDev/CMS_COND_CSC"
+      string connect = "frontier://FrontierDev/CMS_COND_CSC"
 
       untracked bool siteLocalConfig = false
       untracked uint32 authenticationMethod = 1
