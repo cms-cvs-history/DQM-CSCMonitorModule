@@ -1,30 +1,9 @@
 import FWCore.ParameterSet.Config as cms
 
-from CondCore.DBCommon.CondDBSetup_cfi import *
-cscConditions = cms.ESSource("PoolDBESSource",
-    CondDBSetup,
-    siteLocalConfig = cms.untracked.bool(False),
-    toGet = cms.VPSet(cms.PSet(
-        record = cms.string('CSCChamberIndexRcd'),
-        tag = cms.string('CSCChamberIndex')
-    ), 
-        cms.PSet(
-            record = cms.string('CSCChamberMapRcd'),
-            tag = cms.string('CSCChamberMap')
-        ), 
-        cms.PSet(
-            record = cms.string('CSCCrateMapRcd'),
-            tag = cms.string('CSCCrateMap')
-        ), 
-        cms.PSet(
-            record = cms.string('CSCDDUMapRcd'),
-            tag = cms.string('CSCDDUMap')
-        )),
-    messagelevel = cms.untracked.uint32(0),
-    timetype = cms.string('runnumber'),
-    connect = cms.string('frontier://FrontierDev/CMS_COND_CSC'),
-    authenticationMethod = cms.untracked.uint32(1)
-)
+
+#--------------------------
+# DQM Module
+#--------------------------
 
 dqmClient = cms.EDFilter("CSCMonitorModule",
     FractUpdateKey = cms.untracked.uint32(5),
@@ -38,6 +17,10 @@ dqmClient = cms.EDFilter("CSCMonitorModule",
     monitorName = cms.untracked.string('CSC'),
     hitBookDDU = cms.untracked.bool(True)
 )
+
+#--------------------------
+# Message Logger
+#--------------------------
 
 MessageLogger = cms.Service("MessageLogger",
     suppressInfo = cms.untracked.vstring('source'),
@@ -54,7 +37,7 @@ MessageLogger = cms.Service("MessageLogger",
     critical = cms.untracked.PSet(
         threshold = cms.untracked.string('ERROR')
     ),
-    debugModules = cms.untracked.vstring('*'),
+    debugModules = cms.untracked.vstring('CSCMonitormodule'),
     destinations = cms.untracked.vstring('detailedInfo', 
         'critical', 
         'cout')
