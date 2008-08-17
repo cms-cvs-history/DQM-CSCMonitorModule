@@ -76,9 +76,9 @@
 
     service = MessageLogger {
 
-      untracked vstring destinations = { 
-        "detailedInfo" , "critical" , "cout"
-      }
+      #untracked vstring destinations = { 
+      #  "detailedInfo" , "critical" , "cout"
+      #}
 
       untracked vstring debugModules = { "CSCMonitorModule" }
 

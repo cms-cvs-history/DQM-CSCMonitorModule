@@ -59,9 +59,9 @@ MessageLogger = cms.Service("MessageLogger",
 
     debugModules = cms.untracked.vstring('CSCMonitormodule'),
 
-    destinations = cms.untracked.vstring('detailedInfo', 
-        'critical', 
-        'cout')
+#    destinations = cms.untracked.vstring('detailedInfo', 
+#        'critical', 
+#        'cout')
 
 )
 
