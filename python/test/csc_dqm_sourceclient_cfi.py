@@ -27,19 +27,19 @@ dqmClient = cms.EDFilter("CSCMonitorModule",
 
     hitBookDDU = cms.untracked.bool(True),
 
-    effParameters = cms.PSet( 
+    effParameters = cms.untracked.PSet( 
 
-        threshold_cold = cms.double(0.1),
+        threshold_cold = cms.untracked.double(0.1),
 
-        threshold_hot  = cms.double(2.0),
+        threshold_hot  = cms.untracked.double(2.0),
 
-        threshold_err  = cms.double(0.1),
+        threshold_err  = cms.untracked.double(0.1),
 
-        sigfail_cold   = cms.double(5.0),
+        sigfail_cold   = cms.untracked.double(5.0),
 
-        sigfail_hot    = cms.double(5.0),
+        sigfail_hot    = cms.untracked.double(5.0),
 
-        sigfail_err    = cms.double(5.0)
+        sigfail_err    = cms.untracked.double(5.0)
 
     )
 )
