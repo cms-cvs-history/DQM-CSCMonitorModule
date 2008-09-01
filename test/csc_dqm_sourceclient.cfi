@@ -81,9 +81,10 @@
           # If threshold < or > eps - significance is being calculated on
           # statistics availability (see sigfail)
 
-          untracked double threshold_cold = 0.1
-          untracked double threshold_hot  = 2.0
-          untracked double threshold_err  = 0.1
+          untracked double threshold_cold   = 0.1
+          untracked double threshold_hot    = 2.0
+          untracked double threshold_err    = 0.1
+          untracked double threshold_nodata = 0.9
 
           # Significance threshold to be measured to. If calculated
           # significance is bigger then appropriate sigfail - mark reporting HW
@@ -92,6 +93,7 @@
           untracked double sigfail_cold   = 5.0
           untracked double sigfail_hot    = 5.0
           untracked double sigfail_err    = 5.0
+          untracked double sigfail_nodata = 5.0
 
         }
 
