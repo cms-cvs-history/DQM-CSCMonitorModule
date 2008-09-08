@@ -35,7 +35,8 @@ dqmClient = cms.EDFilter("CSCMonitorModule",
 
         threshold_err    = cms.untracked.double(0.1),
 
-        threshold_nodata = cms.untracked.double(1.0),
+# Put to impossible value to switch it off so far
+        threshold_nodata = cms.untracked.double(2.0),
 
         sigfail_cold     = cms.untracked.double(5.0),
 
