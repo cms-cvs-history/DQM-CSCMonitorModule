@@ -57,7 +57,7 @@
 
         # Fractional histogram updates each n events, default is 1. 
         # This works only in the case then FractUpdateKey is set to 4
-        untracked uint32 FractUpdateEventFreq = 10
+        untracked uint32 FractUpdateEventFreq = 1
 
         # Address mask: the list of HW addresses that are known to have problems
         # Masks are formed this way: "[side], [station], [ring], [chamber], [layer], [cfeb], [hv]"
