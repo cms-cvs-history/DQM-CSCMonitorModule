@@ -5,7 +5,7 @@ import FWCore.ParameterSet.Config as cms
 # DQM Module
 #--------------------------
 
-dqmClient = cms.EDFilter("CSCHLTMonitorModule",
+cscDQMEvF = cms.EDFilter("CSCHLTMonitorModule",
   InputObjects = cms.untracked.InputTag("source"),
   ExaminerMask = cms.untracked.uint32(384562166),
   ExaminerOutput = cms.untracked.bool(False),
