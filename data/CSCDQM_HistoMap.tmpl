@@ -1,0 +1,62 @@
+#raw
+/*
+ * =====================================================================================
+ *
+ *       Filename:  CSCLocalHistoMap.h
+ *
+ *    Description:  Map of Local DQM histograms 
+ *
+ *        Version:  1.0
+ *        Created:  10/03/2008 10:26:04 AM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Valdas Rapsevicius, valdas.rapsevicius@cern.ch
+ *        Company:  CERN, CH
+ *
+ * =====================================================================================
+ */
+
+#ifndef CSCDQM_HistoMap_H
+#define CSCDQM_HistoMap_H
+
+#include "DQM/CSCMonitorModule/interface/CSCDQM_HistoType.h"
+
+#include <TString.h>
+#include <map>
+
+namespace cscdqm {
+
+  class HistoMap {
+
+    private:
+    
+      std::map<std::string, HistoType> histoMap;
+
+    public:
+  
+      HistoMap() {
+#end raw
+
+#for $k in sorted($self.datamap.keys)
+  #if $self.datamap[$k] != 0
+        histoMap["$self.datamap[$k]"] = $k;
+  #end if
+#end for
+
+#raw
+      }
+
+      HistoType getType(std::string &name) {
+        std::map<std::string, HistoType>::iterator iter = histoMap.find(name);
+        if( iter != histoMap.end() ) {
+          return iter->second;
+        }
+        return (HistoType) 0;
+      }
+
+  };
+
+}
+#endif
+#end raw
