@@ -1,5 +1,5 @@
 
-    module dqmClient = CSCHLTMonitorModule {
+    module cscDQMEvFClient = CSCHLTMonitorModule {
 
 	# Base name for monitor folders and output file		
 	untracked string monitorName = "CSC"
