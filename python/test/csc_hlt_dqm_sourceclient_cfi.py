@@ -47,10 +47,10 @@ MessageLogger = cms.Service("MessageLogger",
   debugModules = cms.untracked.vstring('CSCHLTMonitormodule'),
 
   destinations = cms.untracked.vstring(
-    'debug',
-    'detailedInfo', 
-    'critical', 
-    'cout'
+#    'debug',
+#    'detailedInfo', 
+#    'critical', 
+#    'cout'
   )
 
 )
