@@ -54,7 +54,8 @@ dqmClient = cms.EDFilter("CSCMonitorModule",
 
 MessageLogger = cms.Service("MessageLogger",
 
-    suppressInfo = cms.untracked.vstring('source'),
+#    suppressInfo = cms.untracked.vstring('source'),
+    suppressInfo = cms.untracked.vstring('*'),
 
     cout = cms.untracked.PSet(
 
