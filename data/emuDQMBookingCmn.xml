@@ -1,0 +1,4933 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Booking xmlns="http://www.phys.ufl.edu/cms/emu/dqm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.phys.ufl.edu/cms/emu/dqm emuDQMBooking.xsd">
+
+	<!-- DEFINITIONS -->
+
+	<Definition id="chamberMap">
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>36</XBins>
+		<XMax>37</XMax>
+		<XMin>1</XMin>
+		<Descr>%BR% %ICON{"warning"}% %BR% %ICON{"tip"}%</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.02</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>36</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='ME-4/2'|2='ME-4/1'|3='ME-3/2'|4='ME-3/1'|5='ME-2/2'|6='ME-2/1'|7='ME-1/3'|8='ME-1/2'|9='ME-1/1'|10='ME+1/1'|11=ME+1/2'|12='ME+1/3'|13='ME+2/1'|14='ME+2/2'|15='ME+3/1'|16='ME+3/2'|17='ME+4/1'|18='ME+4/2'|</SetYLabels>
+		<XTitle>Chamber</XTitle>
+		<YBins>18</YBins>
+		<YMax>18</YMax>
+		<YMin>0</YMin>
+	</Definition>
+
+	<Definition id="DMBMap">
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>60</XBins>
+		<XMax>61</XMax>
+		<XMin>1</XMin>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.015</SetLabelSizeX>
+		<SetLabelSizeY>0.03</SetLabelSizeY>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>60</SetNdivisionsX>
+		<SetNdivisionsY>10</SetNdivisionsY>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetStats>0</SetStats>
+		<XTitle>Crate ID</XTitle>
+		<YBins>10</YBins>
+		<YMax>11</YMax>
+		<YMin>1</YMin>
+		<YTitle>DMB/TMB Slot ID</YTitle>
+	</Definition>
+	
+	<Definition id="physicsMap">
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>18</XBins>
+		<XMax>18</XMax>
+		<XMin>1</XMin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetStats>0</SetStats>
+		<YBins>180</YBins>
+		<YMax>180</YMax>
+		<YMin>1</YMin>
+	</Definition>
+	
+	<!-- HISTOGRAMS -->
+	
+	<!-- Shifter Stats Histograms -->
+	
+	<Histogram ref="chamberMap">
+		<Prefix>EventInfo</Prefix>
+		<Title>CSC Chamber Status</Title>
+		<Name>reportSummaryMap</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Chamber Occupancy</Title>
+		<Name>CSC_STATS_occupancy</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Format Errors</Title>
+		<Name>CSC_STATS_format_err</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC L1 out of Sync Errors</Title>
+		<Name>CSC_STATS_l1sync_err</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC FIFO Full Errors</Title>
+		<Name>CSC_STATS_fifofull_err</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Input Timeout Errors</Title>
+		<Name>CSC_STATS_inputto_err</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Records without ALCT Data</Title>
+		<Name>CSC_STATS_wo_alct</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Records without CLCT Data</Title>
+		<Name>CSC_STATS_wo_clct</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Records without CFEB Data</Title>
+		<Name>CSC_STATS_wo_cfeb</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Records with CFEB B-Words</Title>
+		<Name>CSC_STATS_cfeb_bwords</Name>
+	</Histogram>
+	
+	<!-- Physics Efficiency Maps -->
+	
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>100</XBins>
+		<XMax>100</XMax>
+		<XMin>1</XMin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetStats>0</SetStats>
+		<Title>EMU physics status</Title>
+		<YBins>100</YBins>
+		<YMax>100</YMax>
+		<YMin>1</YMin>
+		<Name>Physics_EMU</Name>
+	</Histogram>
+	<Histogram ref="physicsMap">
+		<Title>EMU physics status: ME1</Title>
+		<Name>Physics_ME1</Name>
+	</Histogram>
+	<Histogram ref="physicsMap">
+		<Title>EMU physics status: ME2</Title>
+		<Name>Physics_ME2</Name>
+	</Histogram>
+	<Histogram ref="physicsMap">
+		<Title>EMU physics status: ME3</Title>
+		<Name>Physics_ME3</Name>
+	</Histogram>
+	<Histogram ref="physicsMap">
+		<Title>EMU physics status: ME4</Title>
+		<Name>Physics_ME4</Name>
+	</Histogram>
+
+	<!-- EMU Level Histograms -->
+	
+	<Histogram ref="DMBMap">
+		<Title>Unpacked DMBs</Title>
+		<Name>DMB_Unpacked</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<SetLogz>1</SetLogz>
+		<SetMaximum>1</SetMaximum>
+		<Title>CSCs with L1A out of sync</Title>
+		<Name>CSC_L1A_out_of_sync</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs without ALCT Data</Title>
+		<Name>DMB_wo_ALCT</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs without CLCT Data</Title>
+		<Name>DMB_wo_CLCT</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs without CFEB Data</Title>
+		<Name>DMB_wo_CFEB</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>Reporting DMBs</Title>
+		<Name>DMB_Reporting</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs with DMB-INPUT-FIFO FULL State</Title>
+		<Name>DMB_input_fifo_full</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs with DMB-INPUT TIMEOUT State</Title>
+		<Name>DMB_input_timeout</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>Unpacked DMBs with Format errors</Title>
+		<Name>DMB_Unpacked_with_errors</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of Unpacked DMBs</Title>
+		<Name>DMB_Unpacked_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB records without ALCT data</Title>
+		<Name>DMB_wo_ALCT_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB records without CLCT data</Title>
+		<Name>DMB_wo_CLCT_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB records without CFEB data</Title>
+		<Name>DMB_wo_CFEB_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMBs with Format Errors</Title>
+		<Name>DMB_Format_Errors</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetLogz>1</SetLogz>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB Records with Format Errors</Title>
+		<Name>DMB_Format_Errors_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<Title>DMB Records with CFEB B-Words</Title>
+		<Name>DMB_Format_Warnings</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetLogz>1</SetLogz>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB Records with CFEB B-Words</Title>
+		<Name>DMB_Format_Warnings_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB Records with DMB-INPUT-FIFO FULL State</Title>
+		<Name>DMB_input_fifo_full_Fract</Name>
+	</Histogram>
+	<Histogram ref="DMBMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of DMB Records with DMB-INPUT TIMEOUT State</Title>
+		<Name>DMB_input_timeout_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>Unpacked CSCs</Title>
+		<Name>CSC_Unpacked</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs with DMB-INPUT-FIFO FULL State</Title>
+		<Name>CSC_DMB_input_fifo_full</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs with DMB-INPUT TIMEOUT State</Title>
+		<Name>CSC_DMB_input_timeout</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>The occupancy histogram shows CSCs reporting data, regardless of whether data format was intact or broken. Chambers within one raw belong to one 360- ring of chamber. 
+    The rainbow pattern of color within one row is due to directionality of cosmic rays. 
+    %BR% 
+    %ICON{"warning"}% At LHC, all chambers within one row should have equal occupancy. 
+    %BR% 
+    %ICON{"tip"}% One should check that there are no new empty cells (check for the list of currently disabled CSCs) and there are no hot CSCs.</Descr>
+		<SetYLabels>1='ME-4/2'|2='ME-4/1'|3='ME-3/2'|4='ME-3/1'|5='ME-2/2'|6='ME-2/1'|7='ME-1/3'|8='ME-1/2'|9='ME-1/1'|10='ME+1/1'|11=ME+1/2'|12='ME+1/3'|13='ME+2/1'|14='ME+2/2'|15='ME+3/1'|16='ME+3/2'|17='ME+4/1'|18='ME+4/2'|</SetYLabels>
+		<Title>Reporting CSCs</Title>
+		<Name>CSC_Reporting</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs without ALCT Data</Title>
+		<Name>CSC_wo_ALCT</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs without CLCT Data</Title>
+		<Name>CSC_wo_CLCT</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs without CFEB Data</Title>
+		<Name>CSC_wo_CFEB</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>Unpacked CSCs with format errors</Title>
+		<Name>CSC_Unpacked_with_errors</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>Unpacked CSCs with format warnings</Title>
+		<Name>CSC_Unpacked_with_warnings</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSCs with Format Errors</Title>
+		<Name>CSC_Format_Errors</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Histogram shows frequency of format errors per CSC record. 
+    %BR% 
+    %ICON{"tip"}% CSCs reporting format errors in more than 1% of events should be flagged. 
+    %BR% 
+    %ICON{"tip"}% Pay attention to the temperature scale (it changes from run to run and during a run according to the histogram content).</Descr>
+		<SetLogz>1</SetLogz>
+		<Title>Fraction of CSC Records with Format Errors</Title>
+		<Name>CSC_Format_Errors_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Shows a frequency of FIFO-FULL condition on DMB inputs (“OR” of 7 FIFOs: 5 CFEBs, ALCT, TMB). 
+    %BR% 
+    %ICON{"warning"}% Appearance of entries in this histogram is very bad and would typically imply a loss of synchronization, even if FIFO-FULL condition clears away. 
+    %BR% 
+    %ICON{"tip"}% To dig out which of the 7 boards is actually responsible for the trouble, one needs to refer the “FEB Status (Timeouts, FIFO, L1 pipe)” canvas for the offensive chamber (this canvas can be found in the DMB group)</Descr>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC with DMB-INPUT-FIFO FULL State</Title>
+		<Name>CSC_DMB_input_fifo_full_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Shows a frequency of a TIMEOUT condition on DMB inputs (“OR” start/stop timeouts for 5 CFEBs, ALCT, TMB). 
+    %BR% 
+    %ICON{"warning"}% Appearance of entries in this histogram is very bad and typically implies badly timed-in CSCs. 
+    %BR% 
+    %ICON{"tip"}% To dig out which of the 7 boards is actually responsible for the trouble, one needs to refer the “FEB Status (Timeouts, FIFO, L1 pipe)” canvas for the offensive chamber (this canvas can be found in the DMB group)</Descr>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC with DMB-INPUT TIMEOUT State</Title>
+		<Name>CSC_DMB_input_timeout_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Histogram shows how often CSC events come without ALCT data.</Descr>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC records without ALCT data</Title>
+		<Name>CSC_wo_ALCT_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC records without CLCT data</Title>
+		<Name>CSC_wo_CLCT_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Histogram shows how often CSC events come without CFEB data.</Descr>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC records without CFEB data</Title>
+		<Name>CSC_wo_CFEB_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Histogram shows unpacking efficiency. 
+    %BR% 
+    %ICON{"warning"}% Gross problems at a scale of &gt;10% inefficiency can be easily seen as deviations from the flat red color corresponding to 100% efficiency. 
+    %BR% 
+    %ICON{"tip"}% Smaller scale problems can be chased using the EMU Test10 canvas.</Descr>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of Unpacked CSCs</Title>
+		<Name>CSC_Unpacked_Fract</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Title>CSC Records with CFEB B-Words</Title>
+		<Name>CSC_Format_Warnings</Name>
+	</Histogram>
+	<Histogram ref="chamberMap">
+		<Descr>Histogram shows occurrences when SCA cells were filled due to too-high rate of LCTs and/or LCT×L1A coincidences. 
+    %BR% 
+    %ICON{"warning"}% In conditions of cosmic ray runs, appearance of entries is indicative of hardware problems, or more specifically hot CFEBs. 
+    %BR% 
+    %ICON{"tip"}% This typically happens due to a loose CFEB-TMB cable generating a flood of CLCT pre-triggers (CBEBs are the only board that are readout on coincidence between pre-CLCT and L1A).</Descr>
+		<SetLogz>1</SetLogz>
+		<SetMaximum>1</SetMaximum>
+		<Title>Fraction of CSC Records with CFEB B-Words</Title>
+		<Name>CSC_Format_Warnings_Fract</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>37</XBins>
+		<XMax>37</XMax>
+		<XMin>0</XMin>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.02</SetLabelSizeX>
+		<SetLabelSizeY>0.03</SetLabelSizeY>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetLeftMargin>0.3</SetLeftMargin>
+		<SetNdivisionsX>37</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetYLabels>1='No Errors'|2='Any Error'|14='Unidentified buffer'|15='DDU Trailer bit error flag from hardware'|16='DDU Header Missing'|17='DDU Trailer Missing (overflow)'|18='DDU Trailer Missing (2 headers in a row)'|</SetYLabels>
+		<Title>Readout Buffer Errors</Title>
+		<YBins>18</YBins>
+		<YMax>18</YMax>
+		<YMin>0</YMin>
+		<Name>All_Readout_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h1</Type>
+		<XBins>44</XBins>
+		<XMax>45</XMax>
+		<XMin>1</XMin>
+		<Descr>Number of Events in DDU. 
+    %BR% 
+    %ICON{"warning"}% All DDUs should give exactly the same number of events.</Descr>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetNdivisionsX>44</SetNdivisionsX>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>bar1text</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DDUs in Readout</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YTitle>DDU Events</YTitle>
+		<Name>All_DDUs_in_Readout</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>L1A increment from event for each DDU. Ideally, if all events are being processed by the DQM then L1A increment from event to event must be 1. 
+    %BR%
+    %BR% 
+    *Local DQM*: However, when the rate goes up, DAQ-DQM may not be able to keep up with the data and are designed to skip events. Occasional skips (L1A&gt;1) will inevitably happen at low rates due to Poisson nature of cosmic ray rates. 
+    %BR% 
+    %ICON{"tip"}% One may also want to flag runs with extremely non-uniform response DDUs. 
+    %BR%
+    %BR% 
+    *Global DQM*: dL1A need not be 1 (in fact, it will be very large as Global DQM gets only a very small fraction of events, ~10 Hz to DQM from the eventual 100,000 Hz of L1 rate. 
+    %BR%
+    %BR% 
+    %ICON{"warning"}% Under no circumstances, the incremental L1A can be zero (there should be no entries in the bottom row of bins of the bottom histogram).</Descr>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetNdivisionsY>20</SetNdivisionsY>
+		<SetOption>textcolz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='0'|2='1'|3='2'|4='3'|5='4'|6='5'|7='6'|8='7'|9='8'|10='9'|11='10'|12='11-30'|13='31-100'|14='101-300'|15='301-1000'|16='1k-3k'|17='3k-10k'|18='10k-30k'|19='30k-100k'|20='&gt;100k'|</SetYLabels>
+		<Title>L1A Increment</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>20</YBins>
+		<YMax>20</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Increment</YTitle>
+		<Name>All_DDUs_L1A_Increment</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>This histogram shows errors identified by DDU firmware and reported in the DDU trailer. Ideally, all entries should be in the bottom row of bins “No Errors”. 
+    However, this is not likely what one would typically see. Note that some of the errors are rather benign (e.g. #13 DAQ FIFO Near Full), while others are certainly very bad and may even require re-synchronization. 
+    %BR% 
+    %ICON{"tip"}% The “OR” of all particularly bad errors in collected in bit #16 “DDU Critical Error”.</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.015</SetLabelSizeX>
+		<SetLabelSizeY>0.03</SetLabelSizeY>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetLeftMargin>0.3</SetLeftMargin>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='No Errors'|2='Any Error'|3='DMB or CFEB CRC error: 01'|4='DMB or CFEB L1A Match error: 02'|5='Fiber Connection changed: 03'|6='Sync Lost was detected by DDU: 04'|7='Two Single Bit-Vote Errors: 05'|8='TMB or ALCT CRC error: 06'|9='Timeout Error: 07'|10='Lost CSC End of Data occurred: 08'|11='Lost Control word in event: 09'|12='CSC Error detected: 10'|13='DDU Clock-DLL error: 11'|14='64-bit alignment error: 12'|15='DAQ FIFO Near Full: 13'|16='DDU Single Event Warning: 14'|17='DDU Single Event Error: 15'|18='DDU Critical Error: 16'|19='TMB/ALCT-DDU L1A Mismatch: 17'|20='TMB/ALCT Word Count Error: 18'|21='ALCT Error: 19'|22='TMB Error: 20'|23='S-Link Not Ready: 21'|24='S-Link Full Bit Present: 22'|25='DDU Input Detected error: 23'|26='One Single Bit-Vote Error: 24'|27='No Live Fibers: 25'|28='Data Stuck in FIFO: 26'|29='L1A-FIFO Full: 27'|30='Wrong First Word: 28'|31='CFEB Count Error occurred: 29'|32='No Good DMB CRC: 30'|33='DDU-CFEB L1 Number Mismatch occurred: 31'|34='CSC LCT/DAV Mismatch occurred: 32'|</SetYLabels>
+		<Title>DDU Trailer Status Errors</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>34</YBins>
+		<YMax>34</YMax>
+		<YMin>0</YMin>
+		<Name>All_DDUs_Trailer_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.015</SetLabelSizeX>
+		<SetLabelSizeY>0.03</SetLabelSizeY>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetLeftMargin>0.3</SetLeftMargin>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='No Errors'|2=' Any errors: 00'|3=' DDU Trailer Missing: 01'|4=' DDU Header Missing: 02'|5=' DDU CRC Error: 03'|6=' DDU Word Count Error: 04'|7=' DMB Trailer Missing: 05'|8=' DMB Header Missing: 06'|9=' ALCT Trailer Missing: 07'|10=' ALCT Header Missing: 08'|11=' ALCT Word Count Error: 09'|12='ALCT CRC Error: 10'|13='ALCT Trailer Bit Error: 11'|14='TMB Trailer Missing: 12'|15='TMB Header Missing: 13'|16='TMB Word Count Error: 14'|17='TMB CRC Error: 15'|18='CFEB Word Count Per Sample Error: 16'|19='CFEB Sample Count Error: 17'|20='CFEB CRC Error: 18'|21='DDU Event Size Limit Error: 19'|22='C-Words: 20'|23='ALCT DAV Error: 21'|24='TMB DAV Error: 22'|25='CFEB DAV Error: 23'|26='DMB Active Error: 24'|27='DCC Trailer Missing: 25'|28='DCC Header Missing: 26'|29='DMB DAV vs. DMB Active mismatch Error: 27'|30='Extra words between DDU Hdr and 1st DMB Hdr: 28'|</SetYLabels>
+		<Title>DDU Data Format Errors</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>30</YBins>
+		<YMax>30</YMax>
+		<YMin>0</YMin>
+		<Name>All_DDUs_Format_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DDU Event Size (from DDU Trailer)</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>40</YBins>
+		<YMax>4</YMax>
+		<YMin>0</YMin>
+		<YTitle>log(DDU Words)</YTitle>
+		<Name>All_DDUs_Event_Size</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>hp</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>E1</SetOption>
+		<SetStats>0</SetStats>
+		<Title>Average Number of DDU 64-bit words</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YTitle>DDU Words</YTitle>
+		<Name>All_DDUs_Average_Event_Size</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>Inputs receiving a handshake from DMB (the handshake is obligatory, regardless of whether DMB has any data to report). 
+    %BR% 
+    %ICON{"tip"}% The histogram should be absolutely flat for all DDUs and their enabled inputs. 
+    %BR% 
+    %ICON{"warning"}% Under no circumstances, DDU inputs within one DDU may have different number of entries.</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetNdivisionsY>15</SetNdivisionsY>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='1'|2='2'|3='3'|4='4'|5='5'|6='6'|7='7'|8='8'|9='9'|10='10'|11='11'|12='12'|13='13'|14='14'|15='15'|</SetYLabels>
+		<Title>DDU Live Inputs</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>15</YBins>
+		<YMax>15</YMax>
+		<YMin>0</YMin>
+		<YTitle>Inputs</YTitle>
+		<Name>All_DDUs_Live_Inputs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>hp</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetMaximum>16</SetMaximum>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>E1</SetOption>
+		<SetStats>0</SetStats>
+		<Title>Average Number of DDU Live Inputs</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>15</YBins>
+		<YMax>15</YMax>
+		<YMin>0</YMin>
+		<YTitle># of Inputs</YTitle>
+		<Name>All_DDUs_Average_Live_Inputs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>Inputs receiving DMB data. Is typically very uneven due to varying event rates from different chambers. 
+    %BR% 
+    %ICON{"tip"}% Particularly bad cases of hot chamber (chambers reporting data too frequently) can be easily spotted here. However, Test08 is much more suited for this.</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetNdivisionsY>15</SetNdivisionsY>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='1'|2='2'|3='3'|4='4'|5='5'|6='6'|7='7'|8='8'|9='9'|10='10'|11='11'|12='12'|13='13'|14='14'|15='15</SetYLabels>
+		<Title>DDU Inputs with data (DAV)</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>15</YBins>
+		<YMax>15</YMax>
+		<YMin>0</YMin>
+		<YTitle>Inputs</YTitle>
+		<Name>All_DDUs_Inputs_with_Data</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>hp</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>E1</SetOption>
+		<SetStats>0</SetStats>
+		<Title>Average Number of DDU Inputs with Data (DAV)</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>15</YBins>
+		<YMax>15</YMax>
+		<YMin>0</YMin>
+		<YTitle># of Inputs</YTitle>
+		<Name>All_DDUs_Average_Inputs_with_Data</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>Inputs in ERROR State. 
+    %BR% 
+    %ICON{"tip"}% Normally all entries should appear in the bottom raw.</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetNdivisionsY>17</SetNdivisionsY>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='No Errors'|2='Any Input'|3='1'|4='2'|5='3'|6='4'|7='5'|8='6'|9='7'|10='8'|11='9'|12='10'|13='11'|14='12'|15='13'|16='14'|17='15'|</SetYLabels>
+		<Title>DDU Inputs in ERROR State</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>17</YBins>
+		<YMax>17</YMax>
+		<YMin>0</YMin>
+		<YTitle>Inputs</YTitle>
+		<Name>All_DDUs_Inputs_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>EMU</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>41</XMax>
+		<XMin>1</XMin>
+		<Descr>Inputs in WARNING State. 
+    %BR% 
+    %ICON{"tip"}% Normally all entries should appear in the bottom raw. 
+    %BR% 
+    %ICON{"tip"}% This histogram can be ignored by a shifter.</Descr>
+		<SetGridx>1</SetGridx>
+		<SetGridy>1</SetGridy>
+		<SetLabelSizeX>0.03</SetLabelSizeX>
+		<SetLabelSizeZ>0.02</SetLabelSizeZ>
+		<SetNdivisionsX>40</SetNdivisionsX>
+		<SetNdivisionsY>17</SetNdivisionsY>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetStats>0</SetStats>
+		<SetYLabels>1='No Warnings'|2='Any Input'|3='1'|4='2'|5='3'|6='4'|7='5'|8='6'|9='7'|10='8'|11='9'|12='10'|13='11'|14='12'|15='13'|16='14'|17='15'|</SetYLabels>
+		<Title>DDU Inputs in WARNING State</Title>
+		<XTitle>DDU IDs</XTitle>
+		<YBins>17</YBins>
+		<YMax>17</YMax>
+		<YMin>0</YMin>
+		<YTitle>Inputs</YTitle>
+		<Name>All_DDUs_Inputs_Warnings</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<XTitle>BXN Counter Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>128</XBins>
+		<XMax>65536</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>emro</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<Title>DDU Buffer Size</Title>
+		<XTitle>Buffer Size in bytes</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>Buffer_Size</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<SetOptStat>emro</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<Title>Errors</Title>
+		<XTitle>CSC</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>CSC_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<Name>CSC_Errors_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<SetOptStat>emro</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<Title>Warnings</Title>
+		<XTitle>CSC</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>CSC_Warnings</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<Name>CSC_Warnings_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<SetNdivisionsX>16</SetNdivisionsX>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>bar1text</SetOption>
+		<Title>Number of active DMBs reporting DAV in Header</Title>
+		<XTitle>Counter of active DMBs from Header</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_Active_Header_Count</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>bar1text</SetOption>
+		<Title>DDU Inputs connected to DMBs</Title>
+		<XTitle>DDU Inputs</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>DMB_Connected_Inputs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<Title>hDDU_DMB_Connected_Inputs_Rate</Title>
+		<Name>DMB_Connected_Inputs_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<SetNdivisionsX>16</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<Title>DMB DAV Header Count vs DMB Active Header Count</Title>
+		<XTitle>Counter of active DMBs from Header</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Counter of DAV DMBs from Header</YTitle>
+		<Name>DMB_DAV_Header_Count_vs_DMB_Active_Header_Count</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>bar1text</SetOption>
+		<Title>DMBs reporting DAV (data available) in Header</Title>
+		<XTitle>DMB position in DDU</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>DMB_DAV_Header_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>16</XMax>
+		<XMin>1</XMin>
+		<SetNdivisionsX>15</SetNdivisionsX>
+		<Title>DMBs reporting DAV (data available) in Header</Title>
+		<Name>DMB_DAV_Header_Occupancy_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<SetNdivisionsX>16</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<Title>Number of unpacked DMBs vs. number of DMBs reporting DAV</Title>
+		<XTitle>Counter of active DMBs from Header</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Counter of unpacked DMBs</YTitle>
+		<Name>DMB_unpacked_vs_DAV</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>100</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<Title>Incremental change in DDU L1A number since previous event</Title>
+		<XTitle>L1A counter increment</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>L1A_Increment</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h2</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0.6</SetLeftMargin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetXLabels>1='Number of Events'|</SetXLabels>
+		<SetYLabels>12='Unidentified buffer'|13='DDU Trailer bit error flag from hardware'|14='DDU Header Missing'|15='DDU Trailer Missing (overflow)'|16='DDU Trailer Missing (2 headers in a row)'|</SetYLabels>
+		<Title>DDU RUI Readout Errors</Title>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<Name>Readout_Errors</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthbar1</SetOption>
+		<Title>DDU Trailer Status Error Frequency</Title>
+		<YTitle>Frequency (%)</YTitle>
+		<Name>Trailer_ErrorStat_Frequency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Name>Trailer_ErrorStat_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h2</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0.6</SetLeftMargin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetXLabels>1='Number of Events'|</SetXLabels>
+		<SetYLabels>1='DMB or CFEB CRC error: 01'|2='DMB or CFEB L1A Match error: 02'|3='Fiber Connection changed: 03'|4='Sync Lost was detected by DDU: 04'|5='Two Single Bit-Vote Errors: 05'|6='TMB or ALCT CRC error: 06'|7='Timeout Error: 07'|8='Lost CSC End of Data occurred: 08'|9='Lost Control word in event: 09'|10='CSC Error detected: 10'|11='DDU Clock-DLL error: 11'|12='64-bit alignment error: 12'|13='DAQ FIFO Near Full: 13'|14='DDU Single Event Warning: 14'|15='DDU Single Event Error: 15'|16='DDU Critical Error: 16'|17='TMB/ALCT-DDU L1A Mismatch: 17'|18='TMB/ALCT Word Count Error: 18'|19='ALCT Error: 19'|20='TMB Error: 20'|21='S-Link Not Ready: 21'|22='S-Link Full Bit Present: 22'|23='DDU Input Detected error: 23'|24='One Single Bit-Vote Error: 24'|25='No Live Fibers: 25'|26='Data Stuck in FIFO: 26'|27='L1A-FIFO Full: 27'|28='Wrong First Word: 28'|29='CFEB Count Error occurred: 29'|30='No Good DMB CRC: 30'|31='DDU-CFEB L1 Number Mismatch occurred: 31'|32='CSC LCT/DAV Mismatch occurred: 32'|</SetYLabels>
+		<Title>DDU Trailer Status Error Table</Title>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<Name>Trailer_ErrorStat_Table</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>DDU</Prefix>
+		<Type>h1</Type>
+		<XBins>128</XBins>
+		<XMax>8192</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>bar1</SetOption>
+		<Title>DDU Word (64 bits) Count</Title>
+		<XTitle>Number of Words in DDU (from DDU Trailer)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>Word_Count</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>ALCT0 BXN</Title>
+		<XTitle>ALCT0 BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT0_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>ALCT0 Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT0_KeyWG</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Collision A'|2='Collision B'|3='Acelerator'|4='N/A'|</SetYLabels>
+		<Title>ALCT0 Patterns vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>4</YBins>
+		<YMax>4</YMax>
+		<YMin>0</YMin>
+		<Name>ALCT0_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|</SetYLabels>
+		<Title>ALCT0 Quality vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>4</YBins>
+		<YMax>4</YMax>
+		<YMin>0</YMin>
+		<Name>ALCT0_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>ALCT0 Average Quality</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>ALCT0_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>16</XMax>
+		<XMin>-16</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>ALCT0 BXN - ALCT_L1A BXN difference</Title>
+		<XTitle>ALCT0 BXN - ALCT_L1A BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT0_dTime</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Average (ALCT0 BXN - L1A BXN) vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average (ALCT0 BXN - L1A BXN)</YTitle>
+		<Name>ALCT0_dTime_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(ALCT0 BXN - ALCT_L1A BXN) vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>16</YMax>
+		<YMin>-16</YMin>
+		<YTitle>ALCT0 BXN - ALCT_L1A BXN</YTitle>
+		<Name>ALCT0_dTime_vs_KeyWG</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>ALCT1 BXN</Title>
+		<XTitle>ALCT1 BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT1_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>ALCT1 Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT1_KeyWG</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Collision A'|2='Collision B'|3='Acelerator'|4='N/A'|</SetYLabels>
+		<Title>ALCT1 Patterns vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>4</YBins>
+		<YMax>4</YMax>
+		<YMin>0</YMin>
+		<Name>ALCT1_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|</SetYLabels>
+		<Title>ALCT1 Quality vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>4</YBins>
+		<YMax>4</YMax>
+		<YMin>0</YMin>
+		<Name>ALCT1_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>ALCT1 Average Quality</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>ALCT1_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>16</XMax>
+		<XMin>-16</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>ALCT1 BXN - ALCT_L1A BXN difference</Title>
+		<XTitle>ALCT1 BXN - ALCT_L1A BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT1_dTime</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Average (ALCT1 BXN - L1A BXN) vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average (ALCT1 BXN - L1A BXN)</YTitle>
+		<Name>ALCT1_dTime_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(ALCT1 BXN - ALCT_L1A BXN) vs Key Wiregroup</Title>
+		<XTitle>Key Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>16</YMax>
+		<YMin>-16</YMin>
+		<YTitle>ALCT1 BXN - ALCT_L1A BXN</YTitle>
+		<Name>ALCT1_dTime_vs_KeyWG</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>ALCT1 &amp; ALCT0 Correlation</Title>
+		<XTitle>ALCT0 Key Wiregroup</XTitle>
+		<YBins>112</YBins>
+		<YMax>112</YMax>
+		<YMin>0</YMin>
+		<YTitle>ALCT1 Key Wiregroup</YTitle>
+		<Name>ALCT1_vs_ALCT0_KeyWG</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly1_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly2_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly3_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly4_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly5_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>ALCTTime_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>ALCTTime_Ly6_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of ALCT BXN counter</Title>
+		<XTitle>ALCT BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB BXN vs ALCT BXN Numbers</Title>
+		<XTitle>ALCT BXN</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB BXN</YTitle>
+		<Name>ALCT_BXN_vs_DMB_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>2048</XMax>
+		<XMin>-2048</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between ALCT and DMB BXN numbers</Title>
+		<XTitle>DMB BXN - ALCT BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_DMB_BXN_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>256</XBins>
+		<XMax>128</XMax>
+		<XMin>-128</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between ALCT and DMB L1A numbers</Title>
+		<XTitle>DMB L1A - ALCT L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_DMB_L1A_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of ALCT L1A counter</Title>
+		<XTitle>ALCT L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly1_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly1_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly2_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly2_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly3_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly3_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly4_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly4_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly5_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly5_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Occupancy (% of total DMB events)</YTitle>
+		<Name>ALCT_Ly6_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Anode Wiregroup</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Ly6_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>emr</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>Location of ALCT in CLCT match window</Title>
+		<XTitle>ALCT location in CLCT-tagged window</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Match_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<SetXLabels>1='0'|2='1'|3='2'|</SetXLabels>
+		<Title>Number of ALCTs</Title>
+		<XTitle>Number of ALCTs</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>ALCT_Number_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>7</XBins>
+		<XMax>7</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>Number of Layers with Hits</Title>
+		<XTitle>Number of Layers</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Number_Of_Layers_With_Hits</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>100</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetLogy>1</SetLogy>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Total Number of Wire Groups with Hits</Title>
+		<XTitle>Number of Wire Groups</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Number_Of_WireGroups_With_Hits</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<Title>Number of ALCTs</Title>
+		<Name>ALCT_Number_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>2000</XBins>
+		<XMax>2000</XMax>
+		<XMin>0</XMin>
+		<Folder>ALCT</Folder>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<XTitle>Number of Words in ALCT (from ALCT Trailer)</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>ALCT_Word_Count</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>21</XBins>
+		<XMax>21</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0</SetLeftMargin>
+		<SetMaximum>100</SetMaximum>
+		<SetNdivisionsX>20</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthbar1</SetOption>
+		<Title>Data Format Errors Frequency</Title>
+		<YTitle>Frequency (%)</YTitle>
+		<Name>BinCheck_ErrorStat_Frequency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0.4</SetLeftMargin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetXLabels>1=' '|</SetXLabels>
+		<SetYLabels>1='DMB Trailer Missing'|2='DMB Header Missing'|3='ALCT Trailer Missing'|4='ALCT Header Missing'|5='ALCT Word Count Error'|6='ALCT CRC Error'|7='ALCT Trailer Bit Error'|8='TMB Trailer Missing'|9='TMB Header Missing'|10='TMB Word Count Error'|11='TMB CRC Error'|12='CFEB Word Count Per Sample Error'|13='CFEB Sample Count Error'|14='CFEB CRC Error'|15='DDU Event Size Limit Error'|16='C-Words'|17='ALCT DAV Error'|18='TMB DAV Error'|19='CFEB DAV Error'|20='DMB Active Error'|21='DMB DAV vs. DMB Active mismatch Error'|</SetYLabels>
+		<Title>Data Format Errors Table</Title>
+		<XTitle>Number of events</XTitle>
+		<YBins>21</YBins>
+		<YMax>21</YMax>
+		<YMin>0</YMin>
+		<Name>BinCheck_ErrorStat_Table</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0</SetLeftMargin>
+		<SetMaximum>100</SetMaximum>
+		<SetNdivisionsX>1</SetNdivisionsX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthbar1</SetOption>
+		<Title>Data Format Warnings Frequency</Title>
+		<YTitle>Frequency (%)</YTitle>
+		<Name>BinCheck_WarningStat_Frequency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetLeftMargin>0.4</SetLeftMargin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>coltext</SetOption>
+		<SetRightMargin>0</SetRightMargin>
+		<SetYLabels>1='CFEB B-Words'|</SetYLabels>
+		<Title>DDU Data Format Warnings Table</Title>
+		<XTitle>Number of events</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<Name>BinCheck_WarningStat_Table</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetXLabels>1='SCA FULL'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|</SetXLabels>
+		<Title>CFEB0</Title>
+		<XTitle>Free SCA Cells</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_Free_SCA_Cells</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB0 L1A Sync BXN</Title>
+		<XTitle>CFEB0 L1A Sync BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_L1A_Sync_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>8</XMax>
+		<XMin>-8</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB0 L1A Sync Time - DMB CFEB Sync Time</Title>
+		<XTitle>CFEB - DMB L1A_Sync_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_L1A_Sync_Time_DMB_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CFEB0 L1A Sync Time vs DMB CFEB Sync Time</Title>
+		<XTitle>DMB L1A_Sync_BXN</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>CFEB0 L1A Sync BXN</YTitle>
+		<Name>CFEB0_L1A_Sync_Time_vs_DMB</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcol</SetOption>
+		<SetXLabels>1='0'|2='1'|</SetXLabels>
+		<SetYLabels>1='0'|2='1'|</SetYLabels>
+		<Title>LCT Phase vs L1A Phase. CFEB0</Title>
+		<XTitle>LCT Phase</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Phase</YTitle>
+		<Name>CFEB0_LCT_PHASE_vs_L1A_PHASE</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<Title>CFEB0</Title>
+		<XTitle>SCA Block</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_SCA_Block_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>18</XBins>
+		<XMax>17</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='LCT PIPE EMPTY'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|18='LCT PIPE FULL'|</SetXLabels>
+		<Title>CFEB0</Title>
+		<XTitle>SCA Blocks Locked by LCTs</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_SCA_Blocks_Locked_by_LCTs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>33</XBins>
+		<XMax>32</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='L1 PIPE EMPTY'|2='0'|7='5'|12='10'|17='15'|22='20'|27='25'|33='L1 PIPE FULL'|</SetXLabels>
+		<Title>CFEB0</Title>
+		<XTitle>SCA Blocks Locked by LCTxL1</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB0_SCA_Blocks_Locked_by_LCTxL1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetXLabels>1='SCA FULL'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|</SetXLabels>
+		<Title>CFEB1</Title>
+		<XTitle>Free SCA Cells</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_Free_SCA_Cells</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB1 L1A Sync BXN</Title>
+		<XTitle>CFEB1 L1A Sync BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_L1A_Sync_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>8</XMax>
+		<XMin>-8</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB1 L1A Sync Time - DMB CFEB Sync Time</Title>
+		<XTitle>CFEB - DMB L1A_Sync_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_L1A_Sync_Time_DMB_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CFEB1 L1A Sync Time vs DMB CFEB Sync Time</Title>
+		<XTitle>DMB L1A_Sync_BXN</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>CFEB1 L1A Sync BXN</YTitle>
+		<Name>CFEB1_L1A_Sync_Time_vs_DMB</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcol</SetOption>
+		<SetXLabels>1='0'|2='1'|</SetXLabels>
+		<SetYLabels>1='0'|2='1'|</SetYLabels>
+		<Title>LCT Phase vs L1A Phase. CFEB1</Title>
+		<XTitle>LCT Phase</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Phase</YTitle>
+		<Name>CFEB1_LCT_PHASE_vs_L1A_PHASE</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<Title>CFEB1</Title>
+		<XTitle>SCA Block</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_SCA_Block_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>18</XBins>
+		<XMax>17</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='LCT PIPE EMPTY'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|18='LCT PIPE FULL'|</SetXLabels>
+		<Title>CFEB1</Title>
+		<XTitle>SCA Blocks Locked by LCTs</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_SCA_Blocks_Locked_by_LCTs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>33</XBins>
+		<XMax>32</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='L1 PIPE EMPTY'|2='0'|7='5'|12='10'|17='15'|22='20'|27='25'|33='L1 PIPE FULL'|</SetXLabels>
+		<Title>CFEB1</Title>
+		<XTitle>SCA Blocks Locked by LCTxL1</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB1_SCA_Blocks_Locked_by_LCTxL1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetXLabels>1='SCA FULL'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|</SetXLabels>
+		<Title>CFEB2</Title>
+		<XTitle>Free SCA Cells</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_Free_SCA_Cells</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB2 L1A Sync BXN</Title>
+		<XTitle>CFEB2 L1A Sync BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_L1A_Sync_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>8</XMax>
+		<XMin>-8</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB2 L1A Sync Time - DMB CFEB Sync Time</Title>
+		<XTitle>CFEB - DMB L1A_Sync_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_L1A_Sync_Time_DMB_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CFEB2 L1A Sync Time vs DMB CFEB Sync Time</Title>
+		<XTitle>DMB L1A_Sync_BXN</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>CFEB2 L1A Sync BXN</YTitle>
+		<Name>CFEB2_L1A_Sync_Time_vs_DMB</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcol</SetOption>
+		<SetXLabels>1='0'|2='1'|</SetXLabels>
+		<SetYLabels>1='0'|2='1'|</SetYLabels>
+		<Title>LCT Phase vs L1A Phase. CFEB2</Title>
+		<XTitle>LCT Phase</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Phase</YTitle>
+		<Name>CFEB2_LCT_PHASE_vs_L1A_PHASE</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<Title>CFEB2</Title>
+		<XTitle>SCA Block</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_SCA_Block_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>18</XBins>
+		<XMax>17</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='LCT PIPE EMPTY'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|18='LCT PIPE FULL'|</SetXLabels>
+		<Title>CFEB2</Title>
+		<XTitle>SCA Blocks Locked by LCTs</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_SCA_Blocks_Locked_by_LCTs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>33</XBins>
+		<XMax>32</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='L1 PIPE EMPTY'|2='0'|7='5'|12='10'|17='15'|22='20'|27='25'|33='L1 PIPE FULL'|</SetXLabels>
+		<Title>CFEB2</Title>
+		<XTitle>SCA Blocks Locked by LCTxL1</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB2_SCA_Blocks_Locked_by_LCTxL1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetXLabels>1='SCA FULL'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|</SetXLabels>
+		<Title>CFEB3</Title>
+		<XTitle>Free SCA Cells</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_Free_SCA_Cells</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB3 L1A Sync BXN</Title>
+		<XTitle>CFEB3 L1A Sync BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_L1A_Sync_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>8</XMax>
+		<XMin>-8</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB3 L1A Sync Time - DMB CFEB Sync Time</Title>
+		<XTitle>CFEB - DMB L1A_Sync_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_L1A_Sync_Time_DMB_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CFEB3 L1A Sync Time vs DMB CFEB Sync Time</Title>
+		<XTitle>DMB L1A_Sync_BXN</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>CFEB3 L1A Sync BXN</YTitle>
+		<Name>CFEB3_L1A_Sync_Time_vs_DMB</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcol</SetOption>
+		<SetXLabels>1='0'|2='1'|</SetXLabels>
+		<SetYLabels>1='0'|2='1'|</SetYLabels>
+		<Title>LCT Phase vs L1A Phase. CFEB3</Title>
+		<XTitle>LCT Phase</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Phase</YTitle>
+		<Name>CFEB3_LCT_PHASE_vs_L1A_PHASE</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<Title>CFEB3</Title>
+		<XTitle>SCA Block</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_SCA_Block_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>18</XBins>
+		<XMax>17</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='LCT PIPE EMPTY'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|18='LCT PIPE FULL'|</SetXLabels>
+		<Title>CFEB3</Title>
+		<XTitle>SCA Blocks Locked by LCTs</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_SCA_Blocks_Locked_by_LCTs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>33</XBins>
+		<XMax>32</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='L1 PIPE EMPTY'|2='0'|7='5'|12='10'|17='15'|22='20'|27='25'|33='L1 PIPE FULL'|</SetXLabels>
+		<Title>CFEB3</Title>
+		<XTitle>SCA Blocks Locked by LCTxL1</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB3_SCA_Blocks_Locked_by_LCTxL1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetXLabels>1='SCA FULL'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|</SetXLabels>
+		<Title>CFEB4</Title>
+		<XTitle>Free SCA Cells</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_Free_SCA_Cells</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB4 L1A Sync BXN</Title>
+		<XTitle>CFEB4 L1A Sync BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_L1A_Sync_Time</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>8</XMax>
+		<XMin>-8</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CFEB4 L1A Sync Time - DMB CFEB Sync Time</Title>
+		<XTitle>CFEB - DMB L1A_Sync_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_L1A_Sync_Time_DMB_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CFEB4 L1A Sync Time vs DMB CFEB Sync Time</Title>
+		<XTitle>DMB L1A_Sync_BXN</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>CFEB4 L1A Sync BXN</YTitle>
+		<Name>CFEB4_L1A_Sync_Time_vs_DMB</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcol</SetOption>
+		<SetXLabels>1='0'|2='1'|</SetXLabels>
+		<SetYLabels>1='0'|2='1'|</SetYLabels>
+		<Title>LCT Phase vs L1A Phase. CFEB4</Title>
+		<XTitle>LCT Phase</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<YTitle>L1A Phase</YTitle>
+		<Name>CFEB4_LCT_PHASE_vs_L1A_PHASE</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<Title>CFEB4</Title>
+		<XTitle>SCA Block</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_SCA_Block_Occupancy</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>18</XBins>
+		<XMax>17</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='LCT PIPE EMPTY'|2='0'|4='2'|6='4'|8='6'|10='8'|12='10'|14='12'|16='14'|18='LCT PIPE FULL'|</SetXLabels>
+		<Title>CFEB4</Title>
+		<XTitle>SCA Blocks Locked by LCTs</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_SCA_Blocks_Locked_by_LCTs</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>33</XBins>
+		<XMax>32</XMax>
+		<XMin>-1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetXLabels>1='L1 PIPE EMPTY'|2='0'|7='5'|12='10'|17='15'|22='20'|27='25'|33='L1 PIPE FULL'|</SetXLabels>
+		<Title>CFEB4</Title>
+		<XTitle>SCA Blocks Locked by LCTxL1</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB4_SCA_Blocks_Locked_by_LCTxL1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CFEB_ActiveStrips_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly1_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly2_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly3_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly4_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly5_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Active sample number</YTitle>
+		<Name>CFEB_Active_Samples_vs_Strip_Ly6_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>17</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Cluster Duration</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Cluster_Duration_Ly_6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>3000</XMax>
+		<XMin>80</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>eom</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Clusters Charge (in ADC Chanels)</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Clusters_Charge_Ly_6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>41</XBins>
+		<XMax>41</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Number of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Number_of_Clusters_Ly_6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Strip Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Out_Off_Range_Strips_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withEMV_Sample_01_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetErrorOption>s</SetErrorOption>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>1</YBins>
+		<YMax>1</YMax>
+		<YMin>0</YMin>
+		<YTitle>Pedestal Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_Pedestal_withRMS_Sample_01_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YTitle>Pedestal RMS Value (in ADC Chanels)</YTitle>
+		<Name>CFEB_PedestalRMS_Sample_01_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 1</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 2</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 3</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 4</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 5</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>80</XBins>
+		<XMax>81</XMax>
+		<XMin>1</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>Layer 6</Title>
+		<XTitle>Strip number</XTitle>
+		<YBins>16</YBins>
+		<YMax>16</YMax>
+		<YMin>0</YMin>
+		<YTitle>SCA Cell</YTitle>
+		<Name>CFEB_SCA_Cell_Peak_Ly_6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 1</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 2</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 3</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 4</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 5</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>80</XBins>
+		<XMax>80</XMax>
+		<XMin>0</XMin>
+		<Folder>CFEB</Folder>
+		<SetOptStat>em</SetOptStat>
+		<Title>Layer 6</Title>
+		<XTitle>Width of Clusters</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CFEB_Width_of_Clusters_Ly_6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4</XBins>
+		<XMax>4</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT0 BXN</Title>
+		<XTitle>CLCT0 BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4</XBins>
+		<XMax>4</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<SetXLabels>1='Half+Half'|2='Half+Di'|3='Di+Half'|4='Di+Di'|</SetXLabels>
+		<Title>Double CLCT Classification (CLCT0+CLCT1)</Title>
+		<XTitle>Key Strips Combination</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_CLCT1_Clssification</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>2</XBins>
+		<XMax>2</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<SetXLabels>1='Half'|2='Di'|</SetXLabels>
+		<Title>Single CLCT Classification (CLCT0)</Title>
+		<XTitle>Key Strips</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_Clssification</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='P=0'|2='P=2'|3='P=4'|4='P=6'|5='P=7'|6='P=5'|7='P=3'|8='P=1'|</SetYLabels>
+		<Title>CLCT0 Patterns vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>8</YBins>
+		<YMax>8</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT0_DiStrip_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|5='Q=4'|6='Q=5'|7='Q=6'|</SetYLabels>
+		<Title>CLCT0 Quality vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT0_DiStrip_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>CLCT0 Average Quality</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>CLCT0_DiStrip_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='P=0'|2='P=1'|3='P=2'|4='P=4'|5='P=6'|6='P=8'|7='P=10'|8='P=9'|9='P=7'|10='P=5'|11='P=3'|</SetYLabels>
+		<Title>CLCT0 Patterns vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>11</YBins>
+		<YMax>11</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT0_Half_Strip_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|5='Q=4'|6='Q=5'|7='Q=6'|</SetYLabels>
+		<Title>CLCT0 Quality vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT0_Half_Strip_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>CLCT0 Average Quality</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>CLCT0_Half_Strip_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT0 Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_KeyDiStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT0 Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_KeyHalfStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>8</XBins>
+		<XMax>4</XMax>
+		<XMin>-4</XMin>
+		<Folder>CLCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>CLCT0 BXN - TMB_L1A BXN Difference</Title>
+		<XTitle>CLCT0 BXN - TMB_L1A BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT0_dTime</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(CLCT0 BXN - TMB_L1A BXN) vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>8</YBins>
+		<YMax>4</YMax>
+		<YMin>-4</YMin>
+		<YTitle>CLCT0 BXN - TMB_L1A BXN</YTitle>
+		<Name>CLCT0_dTime_vs_DiStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(CLCT0 BXN - TMB_L1A BXN) vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>8</YBins>
+		<YMax>4</YMax>
+		<YMin>-4</YMin>
+		<YTitle>CLCT0 BXN - TMB_L1A BXN</YTitle>
+		<Name>CLCT0_dTime_vs_Half_Strip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>112</XBins>
+		<XMax>112</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetLogx>1</SetLogx>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<XTitle>ALCT0 KeyWiregroup</XTitle>
+		<YBins>40</YBins>
+		<YMax>160</YMax>
+		<YMin>0</YMin>
+		<YTitle>CLCT0 KeyDiStrip</YTitle>
+		<Name>CLCT0_KeyDiStrip_vs_ALCT0_KeyWiregroup</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4</XBins>
+		<XMax>4</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT1 BXN</Title>
+		<XTitle>CLCT1 BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT1_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='P=0'|2='P=2'|3='P=4'|4='P=6'|5='P=7'|6='P=5'|7='P=3'|8='P=1'|</SetYLabels>
+		<Title>CLCT1 Patterns vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>8</YBins>
+		<YMax>8</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT1_DiStrip_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|5='Q=4'|6='Q=5'|7='Q=6'|</SetYLabels>
+		<Title>CLCT1 Quality vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT1_DiStrip_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>CLCT1 Average Quality</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>CLCT1_DiStrip_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='P=0'|2='P=1'|3='P=2'|4='P=4'|5='P=6'|6='P=8'|7='P=10'|8='P=9'|9='P=7'|10='P=5'|11='P=3'|</SetYLabels>
+		<Title>CLCT1 Patterns vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>11</YBins>
+		<YMax>11</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT1_Half_Strip_Pattern</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<SetYLabels>1='Q=0'|2='Q=1'|3='Q=2'|4='Q=3'|5='Q=4'|6='Q=5'|7='Q=6'|</SetYLabels>
+		<Title>CLCT1 Quality vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<Name>CLCT1_Half_Strip_Quality</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>CLCT1 Average Quality</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>7</YBins>
+		<YMax>7</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Quality</YTitle>
+		<Name>CLCT1_Half_Strip_Quality_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT1 Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT1_KeyDiStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>em</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>CLCT1 Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT1_KeyHalfStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>8</XBins>
+		<XMax>4</XMax>
+		<XMin>-4</XMin>
+		<Folder>CLCT</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>CLCT1 BXN - TMB_L1A BXN Difference</Title>
+		<XTitle>CLCT1 BXN - TMB_L1A BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT1_dTime</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>40</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(CLCT1 BXN - TMB_L1A BXN) vs Key DiStrip</Title>
+		<XTitle>Key DiStrip</XTitle>
+		<YBins>8</YBins>
+		<YMax>4</YMax>
+		<YMin>-4</YMin>
+		<YTitle>CLCT1 BXN - TMB_L1A BXN</YTitle>
+		<Name>CLCT1_dTime_vs_DiStrip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>(CLCT1 BXN - TMB_L1A BXN) vs Key Half Strip</Title>
+		<XTitle>Key Half Strip</XTitle>
+		<YBins>8</YBins>
+		<YMax>4</YMax>
+		<YMin>-4</YMin>
+		<YTitle>CLCT1 BXN - TMB_L1A BXN</YTitle>
+		<Name>CLCT1_dTime_vs_Half_Strip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>col</SetOption>
+		<Title>CLCT1 &amp; CLCT0 Correlation</Title>
+		<XTitle>CLCT0 Key Strip</XTitle>
+		<YBins>160</YBins>
+		<YMax>160</YMax>
+		<YMin>0</YMin>
+		<YTitle>CLCT1 Key Strip</YTitle>
+		<Name>CLCT1_vs_CLCT0_Key_Strip</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly1</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly1_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly2</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly2_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly3</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly3_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly4</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly4_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly5</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly5_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Time Bin</YTitle>
+		<Name>CLCTTime_Ly6</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>hp</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>P</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>Average Time Bin</YTitle>
+		<Name>CLCTTime_Ly6_Profile</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of TMB BXN counter</Title>
+		<XTitle>TMB BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB BXN vs TMB BXN Numbers</Title>
+		<XTitle>TMB BXN</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB BXN</YTitle>
+		<Name>CLCT_BXN_vs_DMB_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>2048</XMax>
+		<XMin>-2048</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between TMB and DMB BXN numbers</Title>
+		<XTitle>DMB BXN - TMB BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_DMB_BXN_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>256</XBins>
+		<XMax>128</XMax>
+		<XMin>-128</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between TMB and DMB L1A numbers</Title>
+		<XTitle>DMB_L1A-TMB_L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_DMB_L1A_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of TMB L1A Counter</Title>
+		<XTitle>TMB L1A</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>CLCT_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly1_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 1</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly1_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly2_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 2</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly2_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly3_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 3</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly3_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly4_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 4</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly4_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly5_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 5</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly5_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>eou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Ly6_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>160</XBins>
+		<XMax>160</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Layer = 6</Title>
+		<XTitle>Cathode HalfStrip</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Ly6_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<SetXLabels>1='0'|2='1'|3='2'|</SetXLabels>
+		<Title>Number of CLCTs</Title>
+		<XTitle>Number of CLCTs</XTitle>
+		<YTitle>Efficiency (% of total DMB events)</YTitle>
+		<Name>CLCT_Number</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>100</XBins>
+		<XMax>100</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetLogy>1</SetLogy>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Total Number of HalfStrips with Hits</Title>
+		<XTitle>Number of HalfStrips</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Number_Of_HalfStrips_With_Hits</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>7</XBins>
+		<XMax>7</XMax>
+		<XMin>0</XMin>
+		<Folder>CLCT</Folder>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>Number of Layers with Hits</Title>
+		<XTitle>Number of Layers</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>CLCT_Number_Of_Layers_With_Hits</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Title>Number of CLCTs</Title>
+		<Name>CLCT_Number_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<SetMaximum>110</SetMaximum>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>histtext</SetOption>
+		<SetXLabels>1='ALCT Found'|2='TMB Found'|3='CFEB Found'|</SetXLabels>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>CSC_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>5</XBins>
+		<XMax>5</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOption>histtext</SetOption>
+		<SetXLabels>1='DDU Events'|2='DMB Found'|3='ALCT Found'|4='CLCT Found'|5='CFEB Found'|</SetXLabels>
+		<YTitle>Efficiency</YTitle>
+		<Name>CSC_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>4096</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of DMB BXN Counter</Title>
+		<XTitle>DMB BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_BXN_Distrib</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB BXN vs DDU BXN</Title>
+		<XTitle>DDU BXN</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB BXN</YTitle>
+		<Name>DMB_BXN_vs_DDU_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hbar</SetOption>
+		<SetStats>0</SetStats>
+		<SetTitleOffset>1.35,X</SetTitleOffset>
+		<SetXLabels>1='00000'|2='00001'|3='00010'|4='00011'|5='00100'|6='00101'|7='00110'|8='00111'|9='01000'|10='01001'|11='01010'|12='01011'|13='01100'|14='01101'|15='01110'|16='01111'|17='10000'|18='10001'|19='10010'|20='10011'|21='10100'|22='10101'|23='10110'|24='10111'|25='11000'|26='11001'|27='11010'|28='11011'|29='11100'|30='11101'|31='11110'|32='11111'|</SetXLabels>
+		<Title>Active CFEBs combinations as reported by TMB</Title>
+		<XTitle>DMB CFEB Active</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_CFEB_Active</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<LabelsOption>v,X</LabelsOption>
+		<SetLabelSizeX>0.02</SetLabelSizeX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>colz</SetOption>
+		<SetXLabels>1='00000'|2='00001'|3='00010'|4='00011'|5='00100'|6='00101'|7='00110'|8='00111'|9='01000'|10='01001'|11='01010'|12='01011'|13='01100'|14='01101'|15='01110'|16='01111'|17='10000'|18='10001'|19='10010'|20='10011'|21='10100'|22='10101'|23='10110'|24='10111'|25='11000'|26='11001'|27='11010'|28='11011'|29='11100'|30='11101'|31='11110'|32='11111'|</SetXLabels>
+		<SetYLabels>1='00000'|2='00001'|3='00010'|4='00011'|5='00100'|6='00101'|7='00110'|8='00111'|9='01000'|10='01001'|11='01010'|12='01011'|13='01100'|14='01101'|15='01110'|16='01111'|17='10000'|18='10001'|19='10010'|20='10011'|21='10100'|22='10101'|23='10110'|24='10111'|25='11000'|26='11001'|27='11010'|28='11011'|29='11100'|30='11101'|31='11110'|32='11111'|</SetYLabels>
+		<Title>CFEB_Active vs CFEB_DAV combinations</Title>
+		<XTitle>DMB CFEB DAV</XTitle>
+		<YBins>32</YBins>
+		<YMax>32</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB CFEB Active</YTitle>
+		<Name>DMB_CFEB_Active_vs_DAV</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<LabelsOption>v,X</LabelsOption>
+		<SetLabelSizeX>0.02</SetLabelSizeX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<SetXLabels>1='00000'|2='00001'|3='00010'|4='00011'|5='00100'|6='00101'|7='00110'|8='00111'|9='01000'|10='01001'|11='01010'|12='01011'|13='01100'|14='01101'|15='01110'|16='01111'|17='10000'|18='10001'|19='10010'|20='10011'|21='10100'|22='10101'|23='10110'|24='10111'|25='11000'|26='11001'|27='11010'|28='11011'|29='11100'|30='11101'|31='11110'|32='11111'|</SetXLabels>
+		<Title>CFEBs combinations reporting DAV</Title>
+		<XTitle>DMB CFEB DAV</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_CFEB_DAV</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>6</XBins>
+		<XMax>6</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<SetXLabels>1='0'|2='1'|3='2'|4='3'|5='4'|6='5'|</SetXLabels>
+		<Title>Number of CFEBs reporting DAV per event</Title>
+		<XTitle>Number of CFEBs Reporting DAV</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_CFEB_DAV_multiplicity</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>32</XBins>
+		<XMax>32</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<LabelsOption>v,X</LabelsOption>
+		<SetLabelSizeX>0.02</SetLabelSizeX>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<SetXLabels>1='00000'|2='00001'|3='00010'|4='00011'|5='00100'|6='00101'|7='00110'|8='00111'|9='01000'|10='01001'|11='01010'|12='01011'|13='01100'|14='01101'|15='01110'|16='01111'|17='10000'|18='10001'|19='10010'|20='10011'|21='10100'|22='10101'|23='10110'|24='10111'|25='11000'|26='11001'|27='11010'|28='11011'|29='11100'|30='11101'|31='11110'|32='11111'|</SetXLabels>
+		<XTitle>CFEBs</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_CFEB_MOVLP</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>16</XBins>
+		<XMax>16</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Counter of BXNs since last SyncReset to L1A</Title>
+		<XTitle>BXN Number</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_CFEB_Sync</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>2048</XMax>
+		<XMin>-2048</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>emou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between DMB and DDU BXN numbers</Title>
+		<XTitle>DMB BXN - DDU BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_DDU_BXN_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>256</XBins>
+		<XMax>128</XMax>
+		<XMin>-128</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>emou</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Difference between DMB and DDU L1A numbers</Title>
+		<XTitle>DMB L1A - DDU L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_DDU_L1A_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>histtext</SetOption>
+		<SetXLabels>1='ALCT'|2='TMB'|3='CFEB'</SetXLabels>
+		<Title>FEBs Data Available (DAV) Efficiency</Title>
+		<XTitle>Data available in FEB</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>DMB_FEB_DAV_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>histtext</SetOption>
+		<XTitle>Data available in FEB</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_FEB_DAV_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>8</XBins>
+		<XMax>8</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<SetXLabels>1='nothing'|2='ALCT only'|3='TMB only'|4='CFEB only'|5='ALCT+TMB'|6='ALCT+CFEB'|7='TMB+CFEB'|8='ALCT+TMB+CFEB'|</SetXLabels>
+		<Title>FEBs Combinations DAV Efficiency</Title>
+		<XTitle>Data available in FEBs Combinations</XTitle>
+		<YTitle>Efficiency (% of total number of events)</YTitle>
+		<Name>DMB_FEB_Combinations_DAV_Efficiency</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>8</XBins>
+		<XMax>8</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<XTitle>Data available in FEBs Combinations</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_FEB_Combinations_DAV_Rate</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>3</XBins>
+		<XMax>3</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetXLabels>1='ALCT'|2='TMB'|3='CFEB'</SetXLabels>
+		<SetYLabels>1='Unpacked'|2='Not unpacked'|</SetYLabels>
+		<Title>FEBs Unpacked vs DAV</Title>
+		<XTitle>Data available in FEB</XTitle>
+		<YBins>2</YBins>
+		<YMax>2</YMax>
+		<YMin>0</YMin>
+		<Name>DMB_FEB_Unpacked_vs_DAV</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>8</XBins>
+		<XMax>8</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthbar</SetOption>
+		<SetXLabels>1='nothing'|2='ALCT only'|3='TMB only'|4='CFEB only'|5='ALCT+TMB'|6='ALCT+CFEB'|7='TMB+CFEB'|8='ALCT+TMB+CFEB'|</SetXLabels>
+		<SetYLabels>1='nothing'|2='ALCT only'|3='TMB only'|4='CFEB only'|5='ALCT+TMB'|6='ALCT+CFEB'|7='TMB+CFEB'|8='ALCT+TMB+CFEB'|</SetYLabels>
+		<Title>FEBs Combibations Unpacked vs DAV</Title>
+		<XTitle>Data available in FEBs Combinations</XTitle>
+		<YBins>8</YBins>
+		<YMax>8</YMax>
+		<YMin>0</YMin>
+		<Name>DMB_FEB_Combinations_Unpacked_vs_DAV</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>15</XBins>
+		<XMax>15</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetLeftMargin>0.2</SetLeftMargin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>texthbar</SetOption>
+		<SetXLabels>1='No Timeouts'|2='ALCT StartTimeout'|3='TMB StartTimeout'|4='CFEB1 StartTimeout'|5='CFEB2 StartTimeout'|6='CFEB3 StartTimeout'|7='CFEB4 StartTimeout'|8='CFEB5 StartTimeout'|9='ALCT EndTimeout'|10='TMB EndTimeout'|11='CFEB1 EndTimeout'|12='CFEB2 EndTimeout'|13='CFEB3 EndTimeout'|14='CFEB4 EndTimeout'|15='CFEB5 EndTimeout'|</SetXLabels>
+		<Title>DMB FEB Timeouts</Title>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_FEB_Timeouts</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>7</XBins>
+		<XMax>7</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>textcolz</SetOption>
+		<SetXLabels>1='ALCT'|2='TMB'|3='CFEB1'|4='CFEB2'|5='CFEB3'|6='CFEB4'|7='CFEB5'|</SetXLabels>
+		<SetYLabels>1='EMPTY'|2='HALF'|3='FULL'|</SetYLabels>
+		<Title>FEDs FIFO Status</Title>
+		<XTitle>FEDs</XTitle>
+		<YBins>3</YBins>
+		<YMax>3</YMax>
+		<YMin>0</YMin>
+		<YTitle>FIFO States</YTitle>
+		<Name>DMB_FIFO_stats</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>eo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Distribution of DMB L1A Counter</Title>
+		<XTitle>DMB L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>DMB_L1A_Distrib</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB L1A vs ALCT L1A</Title>
+		<XTitle>ALCT L1A</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB L1A</YTitle>
+		<Name>DMB_L1A_vs_ALCT_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB L1A vs TMB L1A</Title>
+		<XTitle>TMB L1A</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB L1A</YTitle>
+		<Name>DMB_L1A_vs_CLCT_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>DMB L1A vs DDU L1A</Title>
+		<XTitle>DDU L1A</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>DMB L1A</YTitle>
+		<Name>DMB_L1A_vs_DDU_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>288</XBins>
+		<XMax>288</XMax>
+		<XMin>0</XMin>
+		<Folder>DMB</Folder>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>Number of L1A requests piped in DMB for readout</Title>
+		<XTitle>Number of L1A</XTitle>
+		<YTitle>Number of Events</YTitle>
+		<Name>DMB_L1_Pipe</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4</XBins>
+		<XMax>4</XMax>
+		<XMin>0</XMin>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>emr</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>ALCT-CLCT BXN Difference for Matched LCT0</Title>
+		<XTitle>BXN difference</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>LCT0_Match_BXN_Difference</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4</XBins>
+		<XMax>4</XMax>
+		<XMin>0</XMin>
+		<SetMinimum>0</SetMinimum>
+		<SetOptStat>emr</SetOptStat>
+		<SetOption>texthist</SetOption>
+		<Title>ALCT-CLCT BXN Difference for Matched LCT1</Title>
+		<XTitle>BXN difference</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>LCT1_Match_BXN_Difference</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>1</XBins>
+		<XMax>1</XMax>
+		<XMin>0</XMin>
+		<SetOptStat>e</SetOptStat>
+		<SetOption>coltext</SetOption>
+		<SetXLabels>1='Number of events'|</SetXLabels>
+		<SetYLabels>1='CLCT only'|2='ALCT only'|3='Matched LCT'|</SetYLabels>
+		<Title>ALCT-CLCT match status</Title>
+		<YBins>3</YBins>
+		<YMax>3</YMax>
+		<YMin>0</YMin>
+		<Name>LCT_Match_Status</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>2048</XMax>
+		<XMin>-2048</XMin>
+		<Folder>TMB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>TMB BXN - ALCT BXN</Title>
+		<XTitle>TMB_BXN - ALCT_BXN</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>TMB_ALCT_BXN_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>4096</XBins>
+		<XMax>2048</XMax>
+		<XMin>-2048</XMin>
+		<Folder>TMB</Folder>
+		<SetOptStat>emuo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<Title>TMB L1A - ALCT L1A</Title>
+		<XTitle>TMB_L1A - ALCT_L1A</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>TMB_ALCT_L1A_diff</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>TMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>TMB BXN vs ALCT BXN</Title>
+		<XTitle>ALCT BXN</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>TMB BXN</YTitle>
+		<Name>TMB_BXN_vs_ALCT_BXN</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h2</Type>
+		<XBins>256</XBins>
+		<XMax>256</XMax>
+		<XMin>0</XMin>
+		<Folder>TMB</Folder>
+		<SetOption>box</SetOption>
+		<SetStats>0</SetStats>
+		<Title>TMB L1A vs ALCT L1A</Title>
+		<XTitle>ALCT L1A</XTitle>
+		<YBins>256</YBins>
+		<YMax>256</YMax>
+		<YMin>0</YMin>
+		<YTitle>TMB L1A</YTitle>
+		<Name>TMB_L1A_vs_ALCT_L1A</Name>
+	</Histogram>
+	<Histogram>
+		<Prefix>CSC</Prefix>
+		<Type>h1</Type>
+		<XBins>2048</XBins>
+		<XMax>2048</XMax>
+		<XMin>0</XMin>
+		<Folder>TMB</Folder>
+		<SetOptStat>emo</SetOptStat>
+		<SetOption>hist</SetOption>
+		<XTitle>Number of Words in TMB (from TMB Trailer)</XTitle>
+		<YTitle>Number of events</YTitle>
+		<Name>TMB_Word_Count</Name>
+	</Histogram>
+</Booking>
