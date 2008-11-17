@@ -24,7 +24,8 @@ process.load("DQM.CSCMonitorModule.test.csc_cmn_dqm_sourceclient_cfi")
 
 #process.load("DQM.Integration.python.test.inputsource_playback_cfi")
 process.maxEvents = cms.untracked.PSet(
-  input = cms.untracked.int32(5)
+#  input = cms.untracked.int32(5)
+  input = cms.untracked.int32(-1)
 )
 
 process.source = cms.Source("EventStreamHttpReader",
