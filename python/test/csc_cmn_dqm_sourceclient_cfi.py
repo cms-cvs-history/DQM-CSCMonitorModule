@@ -10,7 +10,6 @@ dqmClient = cms.EDFilter("CSCMonitorModuleCmn",
   FractUpdateEventFreq = cms.untracked.uint32(100),
 
   BookingFile = cms.FileInPath('DQM/CSCMonitorModule/data/emuDQMBookingCmn.xml'),
-  InputObjects = cms.untracked.InputTag("source"),
 
   ExaminerMask = cms.untracked.uint32(384562166),
   ExaminerOutput = cms.untracked.bool(False),

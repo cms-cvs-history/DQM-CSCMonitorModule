@@ -130,7 +130,7 @@ process.dqmSaver.dirName = '.'
 # Magnetic Field
 #-----------------------------
 
-process.load("Configuration.GlobalRuns.ForceZeroTeslaField_cff")
+process.load("Configuration/StandardSequences/MagneticField_cff")
 
 #-------------------------------------------------
 # GEOMETRY
@@ -189,12 +189,12 @@ process.MessageLogger = cms.Service("MessageLogger",
     threshold = cms.untracked.string('DEBUG')
   ),
 
-  debugModules = cms.untracked.vstring('CSCMonitormoduleCmn'),
+  debugModules = cms.untracked.vstring('CSCMonitorModuleCmn:dqmClient'),
 
   destinations = cms.untracked.vstring(
-#    'debug',
-#    'detailedInfo', 
-#    'critical', 
+    'debug',
+    'detailedInfo', 
+    'critical', 
     'cout'
   )
 )                                                              
