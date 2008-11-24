@@ -7,7 +7,7 @@ import FWCore.ParameterSet.Config as cms
 dqmClient = cms.EDFilter("CSCMonitorModuleCmn",
 
   FractUpdateKey = cms.untracked.uint32(5),
-  FractUpdateEventFreq = cms.untracked.uint32(100),
+  FractUpdateEventFreq = cms.untracked.uint32(1),
 
   BookingFile = cms.FileInPath('DQM/CSCMonitorModule/data/emuDQMBookingCmn.xml'),
 
