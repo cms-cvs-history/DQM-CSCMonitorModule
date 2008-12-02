@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 # DQM Module
 #--------------------------
 
-dqmClient = cms.EDFilter("CSCMonitorModuleCmn",
+dqmCSCClient = cms.EDFilter("CSCMonitorModuleCmn",
 
   FractUpdateKey = cms.untracked.uint32(5),
   FractUpdateEventFreq = cms.untracked.uint32(1),

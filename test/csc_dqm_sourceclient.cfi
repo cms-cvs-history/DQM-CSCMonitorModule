@@ -28,7 +28,7 @@
 #      untracked uint32 messagelevel = 0
 #    }
 
-    module dqmClient = CSCMonitorModule {
+    module dqmCSCClient = CSCMonitorModule {
 
 	# Base name for monitor folders and output file		
 	untracked string monitorName = "CSC"

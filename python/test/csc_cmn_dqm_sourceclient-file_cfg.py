@@ -189,7 +189,7 @@ process.MessageLogger = cms.Service("MessageLogger",
     threshold = cms.untracked.string('DEBUG')
   ),
 
-  debugModules = cms.untracked.vstring('CSCMonitorModuleCmn:dqmClient'),
+  debugModules = cms.untracked.vstring('CSCMonitorModuleCmn:dqmCSCClient'),
 
   destinations = cms.untracked.vstring(
     'debug',
@@ -204,7 +204,7 @@ process.MessageLogger = cms.Service("MessageLogger",
 # Sequences
 #--------------------------
 
-process.p = cms.Path(process.dqmClient + process.dqmEnv + process.dqmSaver)
-#process.p = cms.Path(process.muonCSCDigis * process.csc2DRecHits * process.cscSegments * process.cscMonitor * process.dqmClient + process.dqmEnv + process.dqmSaver)
+process.p = cms.Path(process.dqmCSCClient + process.dqmEnv + process.dqmSaver)
+#process.p = cms.Path(process.muonCSCDigis * process.csc2DRecHits * process.cscSegments * process.cscMonitor * process.dqmCSCClient + process.dqmEnv + process.dqmSaver)
 
 
