@@ -144,10 +144,11 @@ process.load("Configuration.StandardSequences.Geometry_cff")
 
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 #process.GlobalTag.connect = "sqlite_file:/nfshome0/malgeri/public/globtag/CRZT210_V1H.db"
+process.GlobalTag.connect = "sqlite_file:/afs/cern.ch/user/v/valdo/CRZT210_V1H.db"
 #process.GlobalTag.connect = "frontier://FrontierDev/CMS_COND_CSC"
-process.GlobalTag.connect ="frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_21X_GLOBALTAG"
-#process.GlobalTag.globaltag = "CRZT210_V1H::All"
-process.GlobalTag.globaltag = 'CRAFT_V3P::All'
+#process.GlobalTag.connect ="frontier://(proxyurl=http://localhost:3128)(serverurl=http://frontier1.cms:8000/FrontierOnProd)(serverurl=http://frontier2.cms:8000/FrontierOnProd)(retrieve-ziplevel=0)/CMS_COND_21X_GLOBALTAG"
+process.GlobalTag.globaltag = "CRZT210_V1H::All"
+#process.GlobalTag.globaltag = 'CRAFT_V3P::All'
 process.es_prefer_GlobalTag = cms.ESPrefer('PoolDBESSource','GlobalTag')
 
 #--------------------------
