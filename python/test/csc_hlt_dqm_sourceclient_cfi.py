@@ -42,7 +42,14 @@ cscDQMEvF = cms.EDFilter("CSCMonitorModule",
       '-/^.*$/',
       '+/FEDEntries/',
       '+/FEDFatal/',
-      '+/FEDNonFatal/'
+      '+/FEDNonFatal/',
+      '+/^CSC_Reporting$/',
+      '+/^CSC_Format_Errors$/',
+      '+/^CSC_Format_Warnings$/',
+      '+/^CSC_L1A_out_of_sync$/',
+      '+/^CSC_wo_ALCT$/',
+      '+/^CSC_wo_CFEB$/',
+      '+/^CSC_wo_CLCT$/'
     )
   )
 
