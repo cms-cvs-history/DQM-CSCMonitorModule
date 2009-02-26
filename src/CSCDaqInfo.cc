@@ -42,7 +42,6 @@ void CSCDaqInfo::beginLuminosityBlock(const LuminosityBlock& lumiBlock, const Ev
 
   if(0 != iSetup.find(recordKey) ) {
 
-    cout << "record key found" << endl;
     //get fed summary information
     ESHandle<RunInfo> sumFED;
     iSetup.get<RunInfoRcd>().get(sumFED);    
@@ -53,7 +52,6 @@ void CSCDaqInfo::beginLuminosityBlock(const LuminosityBlock& lumiBlock, const Ev
     for(unsigned int fedItr = 0; fedItr < FedsInIds.size(); ++fedItr) {
       int fedID = FedsInIds[fedItr];
       //make sure fed id is in allowed range  
-      cout << fedID << endl;   
       if (fedID >= FEDRange.first && fedID <= FEDRange.second) ++FedCount;
     }   
 

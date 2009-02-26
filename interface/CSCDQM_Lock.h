@@ -32,39 +32,26 @@ namespace cscdqm {
   
     private:
 
-      boost::recursive_mutex lckMutex;
-      boost::recursive_mutex::scoped_lock lckLock;
-      bool lockedByOther; 
-
     public: 
 
       Lock() : lckLock(lckMutex) { 
         unlock(); 
-        lockedByOther = false;
       }
 
       virtual ~Lock() { }
 
       void lock() { 
-        if (!isLocked()) {
-          lckLock.lock(); 
-          lockedByOther = true;
-        }
       }
 
       void unlock() { 
-        if (isLocked()) {
-          lckLock.unlock(); 
-          lockedByOther = false;
-        }
       }
 
       const bool isLocked() const { 
-        return lckLock.locked(); 
+        return false; 
       }
 
       const bool isLockedByOther() const {
-        return lockedByOther;
+        return false;
       }
 
   };
