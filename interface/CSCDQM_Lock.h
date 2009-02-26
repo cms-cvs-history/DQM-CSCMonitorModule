@@ -34,7 +34,7 @@ namespace cscdqm {
 
     public: 
 
-      Lock() : lckLock(lckMutex) { 
+      Lock() { 
         unlock(); 
       }
 
