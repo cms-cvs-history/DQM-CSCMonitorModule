@@ -36,7 +36,6 @@ namespace cscdqm {
 
       Lock() { 
         unlock(); 
-        lockedByOther = false;
       }
 
       virtual ~Lock() { }
