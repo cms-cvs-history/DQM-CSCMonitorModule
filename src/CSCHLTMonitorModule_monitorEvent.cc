@@ -67,17 +67,19 @@ void CSCHLTMonitorModule::monitorEvent(const edm::Event& e){
       const short unsigned int *data = (short unsigned int *) fedData.data();
 
       if (examiner.check(data, long(fedData.size()/2)) < 0 ) {
-        const uint16_t dduTrailer[4] = { 0x8000, 0x8000, 0xFFFF, 0x8000 };
-        data = dduTrailer;
-        examiner.check(data, uint32_t(4));
-      }
 
-      if ((examiner.errors() & examinerMask) > 0) {
         mes["FEDFatal"]->Fill(id); 
-      }
 
-      if (examiner.warnings() != 0) {
-        mes["FEDNonFatal"]->Fill(id); 
+      } else {
+
+        if ((examiner.errors() & examinerMask) > 0) {
+          mes["FEDFormatFatal"]->Fill(id); 
+        }
+
+        if (examiner.warnings() != 0) {
+          mes["FEDNonFatal"]->Fill(id); 
+        }
+
       }
      
     }

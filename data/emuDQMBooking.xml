@@ -9,6 +9,20 @@
   <!-- Start of Gloabl DQM shifter histograms -->
 
   <Histogram>
+    <Type>h1</Type>
+    <Prefix>EMU</Prefix>
+    <Name>FEDFatalErrors</Name>
+    <SetOption>bar1text</SetOption>
+    <SetStats>0</SetStats>
+    <XBins>8</XBins>
+    <XMax>757</XMax>
+    <XMin>750</XMin>
+    <XTitle>FED ID</XTitle>
+    <YTitle># of Events</YTitle>
+    <Title>CSC FED Fatal Entries</Title>
+  </Histogram>
+
+  <Histogram>
     <Type>h2</Type>
     <Prefix>EventInfo</Prefix>
     <Name>reportSummaryMap</Name>

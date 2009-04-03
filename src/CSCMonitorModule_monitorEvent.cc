@@ -76,16 +76,16 @@ void CSCMonitorModule::monitorEvent(const edm::Event& e){
        
       const short unsigned int *data = (short unsigned int *) fedData.data();
 
+      bool goodEvent = false;
+
       // If Event has not yet been passed via Examiner - lets do it now.
       // Examiner will set up the flag if event is good or not.
       if (examiner.check(data, long(fedData.size()/2)) < 0 ) {
-        // No ddu trailer found - force checker to summarize errors by adding artificial trailer
-        const uint16_t dduTrailer[4] = { 0x8000, 0x8000, 0xFFFF, 0x8000 };
-        data = dduTrailer;
-        examiner.check(data, uint32_t(4));
+        MonitorElement* me = NULL;
+        if (MEEMU("FEDFatalErrors", me)) me->Fill(id);
+      } else {
+        goodEvent = monitorExaminer(examiner);
       }
-
-      bool goodEvent = monitorExaminer(examiner);
      
       // If event is OK then proceed with other procedures...
       if (goodEvent) {

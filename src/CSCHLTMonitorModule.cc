@@ -74,6 +74,7 @@ void CSCHLTMonitorModule::setup() {
   unsigned int fsize = fedIdMax - fedIdMin + 1;
   mes.insert(std::make_pair("FEDEntries", dbe->book1D("FEDEntries", "CSC FED Entries", fsize, fedIdMin, fedIdMax)));
   mes.insert(std::make_pair("FEDFatal", dbe->book1D("FEDFatal", "CSC FED Fatal Errors", fsize, fedIdMin, fedIdMax)));
+  mes.insert(std::make_pair("FEDFormatFatal", dbe->book1D("FEDFormatFatal", "CSC FED Format Fatal Errors", fsize, fedIdMin, fedIdMax)));
   mes.insert(std::make_pair("FEDNonFatal", dbe->book1D("FEDNonFatal", "CSC FED Non Fatal Errors", fsize, fedIdMin, fedIdMax)));
 
   for(MeMap::iterator iter = mes.begin(); iter != mes.end(); iter++) {
