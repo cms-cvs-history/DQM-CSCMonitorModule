@@ -45,6 +45,7 @@ dqmCSCClient = cms.EDFilter("CSCMonitorModule",
       '-/CSC_[0-9]+_[0-9]+/',
       '-/FEDEntries/',
       '-/FEDFatal/',
+      '-/FEDFormatFatal/',
       '-/FEDNonFatal/'
     )
   )
