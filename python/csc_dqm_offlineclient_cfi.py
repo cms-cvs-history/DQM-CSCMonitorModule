@@ -1,13 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-#--------------------------
-# DQM Module
-#--------------------------
-
-dqmCSCClient = cms.EDFilter("CSCMonitorModule",
-
-  BOOKING_XML_FILE = cms.FileInPath('DQM/CSCMonitorModule/data/emuDQMBooking.xml'),
-  InputObjects = cms.untracked.InputTag("source"),
+dqmCSCOfflineClient = cms.EDFilter("CSCOfflineClient",
 
   EventProcessor = cms.untracked.PSet(
     PROCESS_DDU = cms.untracked.bool(True),
@@ -40,13 +33,7 @@ dqmCSCClient = cms.EDFilter("CSCMonitorModule",
     EFF_NODATA_SIGFAIL = cms.untracked.double(5.0),
     EVENTS_ECHO = cms.untracked.uint32(1000),
     MO_FILTER = cms.untracked.vstring(
-      '+/^.*$/',
-      '-/DDU_[0-9]+/',
-      '-/CSC_[0-9]+_[0-9]+/',
-      '-/FEDEntries/',
-      '-/FEDFatal/',
-      '-/FEDFormatFatal/',
-      '-/FEDNonFatal/'
+      '-/^.*$/'
     )
   )
 
